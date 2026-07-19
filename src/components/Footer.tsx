@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isAdminPage = pathname?.startsWith("/dashboard");
+
   return (
-    <footer className="bg-[#0b1120] py-6 mt-auto">
+    <footer className={`bg-[#0b1120] py-6 mt-auto ${isAdminPage ? "ml-64" : ""}`}>
       <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
         
         <p className="text-[13px] text-slate-400">
