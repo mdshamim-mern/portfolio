@@ -6,6 +6,7 @@ import { FaHome, FaPlus, FaEnvelope, FaChartBar, FaSignOutAlt, FaFolderOpen } fr
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-slate-50 flex">
+      <style dangerouslySetInnerHTML={{ __html: `footer { margin-left: 16rem; }` }} />
       
       <aside className="w-64 bg-slate-900 text-slate-300 flex flex-col fixed h-full z-20 shadow-2xl">
         <div className="p-6 flex items-center gap-3 border-b border-slate-800">
