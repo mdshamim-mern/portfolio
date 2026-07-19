@@ -8,30 +8,31 @@ datasource db {
 }
 
 model Project {
-  id             Int      @id @default(autoincrement()) 
-  image          String   
-  description    String  
-  techStack      String[] 
-  liveLink       String   
-  githubLink     String   
-  challenges     String   
-  futurePlans    String   
-  createdAt      DateTime @default(now())  
-  updatedAt      DateTime @updatedAt      
+  id          Int      @id @default(autoincrement())
+  title       String
+  image       String
+  description String
+  techStack   String[]
+  liveLink    String
+  githubLink  String
+  challenges  String
+  futurePlans String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Message {
   id        Int      @id @default(autoincrement())
-  name      String   
-  email     String   
-  phone     String?  
-  message   String   
-  createdAt DateTime @default(now()) 
+  name      String
+  email     String
+  phone     String?
+  message   String
+  createdAt DateTime @default(now())
 }
 
 model Skill {
   id        Int      @id @default(autoincrement())
-  name      String   
-  category  String   
+  name      String
+  category  String
   createdAt DateTime @default(now())
 }
