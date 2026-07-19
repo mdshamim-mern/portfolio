@@ -18,8 +18,9 @@ Currently open to high-paying remote software development opportunities worldwid
 
 ## ✨ Featured Projects Highlight
 
-* **NextGen PC Builder:** An enterprise-level, AI-powered web application acting as an advanced Constraint Satisfaction Engine for custom PC building.
-* **ECOMMERCE-APP:** A full-stack e-commerce architecture with complete secure checkout workflows.
+* **Easyshop - Full Stack E-commerce Platform:** A modern, responsive e-commerce platform designed to provide a seamless online shopping experience. Built with React, Tailwind CSS, and Node.js.
+* **NextGen PC Builder:** An enterprise-level, AI-powered web application acting as an advanced custom PC rig configurator without the guesswork. Built with Next.js, TypeScript, and Tailwind CSS.
+* **VibeX - Full Stack Social Media Platform:** A dynamic social media application built with the MERN stack (MongoDB, Express.js, React.js). It enables users to connect, share posts, and interact seamlessly within a community.
 
 ## 🛠️ Local Installation & Setup
 
