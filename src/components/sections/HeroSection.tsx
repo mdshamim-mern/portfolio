@@ -8,6 +8,40 @@ export default function HeroSection() {
   const titles = ["Full Stack Developer", "Software Engineer", "AI Architect"];
   const [titleIndex, setTitleIndex] = useState(0);
   const [fade, setFade] = useState(true);
+  const [typedHi, setTypedHi] = useState("");
+  const fullHiText = "Hi There I'm";
+
+  useEffect(() => {
+    let index = 0;
+    let isDeleting = false;
+    let timeoutId: any;
+
+    const type = () => {
+      setTypedHi(fullHiText.substring(0, index));
+
+      if (!isDeleting) {
+        if (index < fullHiText.length) {
+          index++;
+          timeoutId = setTimeout(type, 150);
+        } else {
+          isDeleting = true;
+          timeoutId = setTimeout(type, 2000);
+        }
+      } else {
+        if (index > 0) {
+          index--;
+          timeoutId = setTimeout(type, 50);
+        } else {
+          isDeleting = false;
+          timeoutId = setTimeout(type, 500);
+        }
+      }
+    };
+
+    type();
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,8 +64,9 @@ export default function HeroSection() {
         
         <div className="flex-1 text-center lg:text-left">
           
-          <h2 className="text-4xl md:text-5xl font-black text-slate-800 mb-2 leading-normal whitespace-nowrap">
-            Hi There I'm
+          <h2 className="text-4xl md:text-5xl font-black text-slate-800 mb-2 leading-normal whitespace-nowrap min-h-[50px]">
+            {typedHi}
+            <span className="animate-pulse border-r-4 border-slate-800 ml-1"></span>
           </h2>
           
           <h1 className="text-5xl md:text-7xl font-black text-sky-500 mb-4 tracking-tight">
