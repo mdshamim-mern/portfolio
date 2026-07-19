@@ -61,7 +61,7 @@ export default function HeroSection() {
             </Link>
             
             <a 
-              href="/resume/Md_Shamim_Resume.pdf" 
+              href="/resume/Shamim_Resume_update.pdf" 
               target="_blank"
               className="px-8 py-4 bg-white text-slate-700 font-bold rounded-full border border-slate-200 hover:border-sky-200 hover:text-sky-500 transition-all duration-300 shadow-sm flex items-center justify-center gap-2 w-full sm:w-auto group"
             >
