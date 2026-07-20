@@ -5,16 +5,15 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ContactSection from "@/components/sections/ContactSection";
 
+export const dynamic = "force-dynamic";
+
 export default function HomePage() {
   return (
     <main className="w-full">
-      {/* Home Section */}
       <HeroSection />
 
-      {/* About Section */}
       <AboutSection />
 
-      {/* Skills Section */}
       <section id="skills" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -26,13 +25,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Projects Section */}
       <ProjectsSection />
 
-      {/* Services Section */}
       <ServicesSection />
 
-      {/* Contact Section (Now available on scroll!) */}
       <ContactSection />
     </main>
   );
