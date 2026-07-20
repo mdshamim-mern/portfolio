@@ -1,20 +1,24 @@
 import ProjectCard from "../ProjectCard"; 
-import prisma from "@/lib/prisma";
-import { unstable_noStore as noStore } from "next/cache";
+import { headers } from "next/headers";
 
 export default async function ProjectsSection() {
-  noStore(); 
-
   let projects: any[] = [];
+  
   try {
-    const rawProjects = await prisma.project.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
+    const headersList = headers();
+    const domain = headersList.get("host") || "";
+    const protocol = domain.includes("localhost") ? "http" : "https";
+    
+    const res = await fetch(`${protocol}://${domain}/api/projects`, { 
+      cache: "no-store" 
     });
-    projects = JSON.parse(JSON.stringify(rawProjects));
+    
+    const data = await res.json();
+    if (data.success) {
+      projects = data.data; 
+    }
   } catch (error) {
-    console.error("Failed to fetch projects from DB", error);
+    console.error("Failed to fetch projects via API", error);
   }
 
   return (
@@ -29,7 +33,7 @@ export default async function ProjectsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.length > 0 ? (
             projects.map((project: any) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard key={project._id || project.id} project={project} />
             ))
           ) : (
             <p className="col-span-full text-center text-slate-500 font-bold text-xl py-10">
