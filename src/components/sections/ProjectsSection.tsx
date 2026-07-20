@@ -4,7 +4,8 @@ import { getAllProjects } from "@/actions/projectActions";
 export default async function ProjectsSection() {
   let projects: any[] = [];
   try {
-    projects = await getAllProjects();
+    const rawProjects = await getAllProjects();
+    projects = JSON.parse(JSON.stringify(rawProjects));
   } catch (error) {
     console.error("Failed to fetch projects", error);
   }
