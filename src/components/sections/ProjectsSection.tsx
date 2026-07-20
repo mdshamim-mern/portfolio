@@ -1,13 +1,10 @@
 import ProjectCard from "../ProjectCard"; 
+import { getAllProjects } from "@/actions/projectActions";
 
 export default async function ProjectsSection() {
-  let projects = [];
+  let projects: any[] = [];
   try {
-    const res = await fetch("http://localhost:3000/api/projects", { cache: "no-store" });
-    const data = await res.json();
-    if (data.success) {
-      projects = data.data; 
-    }
+    projects = await getAllProjects();
   } catch (error) {
     console.error("Failed to fetch projects", error);
   }
@@ -24,7 +21,7 @@ export default async function ProjectsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.length > 0 ? (
             projects.map((project: any) => (
-              <ProjectCard key={project._id || project.id} project={project} />
+              <ProjectCard key={project.id} project={project} />
             ))
           ) : (
             <p className="col-span-full text-center text-slate-500 font-bold text-xl py-10">
