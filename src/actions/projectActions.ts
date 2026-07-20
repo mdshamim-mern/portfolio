@@ -30,6 +30,8 @@ export async function createProject(formData: FormData) {
     });
 
     revalidatePath("/projects");
+    revalidatePath("/");
+    
     return { success: true, message: "Project created successfully!" };
   } catch (error) {
     console.error("Error creating project:", error);

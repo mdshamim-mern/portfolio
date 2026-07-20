@@ -11,7 +11,7 @@ import ViewTracker from "../components/ui/ViewTracker";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Md Shamim | Full Stack Developer",
+  title: "Md Shamim",
   description: "Portfolio of Md Shamim, a passionate Full Stack Web Developer specializing in the MERN stack.",
   icons: {
     icon: "/favicon.ico",
