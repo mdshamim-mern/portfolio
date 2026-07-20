@@ -50,7 +50,7 @@ export default function ProjectCard({ project }: { project: ProjectType }) {
         <div className="mt-auto grid grid-cols-3 gap-2">
         
           <a 
-            href="https://ecommerce-app-three-olive.vercel.app/" 
+            href={project?.livePreview || "#"} 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-blue-500 hover:bg-blue-600 text-white text-xs text-center font-bold py-2 rounded-lg transition-colors flex items-center justify-center"
@@ -58,14 +58,14 @@ export default function ProjectCard({ project }: { project: ProjectType }) {
             LIVE
           </a>
 
-          <Link 
+          <a 
             href={project?.repository || "#"} 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-gray-900 hover:bg-gray-800 text-white text-xs text-center font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-1"
           >
             <FaGithub className="text-sm" /> REPO
-          </Link>
+          </a>
           
           <Link 
             href={`/projects/${projectId}`} 
