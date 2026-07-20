@@ -1,13 +1,20 @@
 import ProjectCard from "../ProjectCard"; 
-import { getAllProjects } from "@/actions/projectActions";
+import prisma from "@/lib/prisma";
+import { unstable_noStore as noStore } from "next/cache";
 
 export default async function ProjectsSection() {
+  noStore(); 
+
   let projects: any[] = [];
   try {
-    const rawProjects = await getAllProjects();
+    const rawProjects = await prisma.project.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
     projects = JSON.parse(JSON.stringify(rawProjects));
   } catch (error) {
-    console.error("Failed to fetch projects", error);
+    console.error("Failed to fetch projects from DB", error);
   }
 
   return (
