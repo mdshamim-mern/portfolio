@@ -1,25 +1,30 @@
-import ProjectCard from "../ProjectCard"; 
-import { headers } from "next/headers";
+"use client"; 
 
-export default async function ProjectsSection() {
-  let projects: any[] = [];
-  
-  try {
-    const headersList = headers();
-    const domain = headersList.get("host") || "";
-    const protocol = domain.includes("localhost") ? "http" : "https";
-    
-    const res = await fetch(`${protocol}://${domain}/api/projects`, { 
-      cache: "no-store" 
-    });
-    
-    const data = await res.json();
-    if (data.success) {
-      projects = data.data; 
-    }
-  } catch (error) {
-    console.error("Failed to fetch projects via API", error);
-  }
+import { useEffect, useState } from "react";
+import ProjectCard from "../ProjectCard";
+
+export default function ProjectsSection() {
+  const [projects, setProjects] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        
+        const res = await fetch("/api/projects");
+        const data = await res.json();
+        if (data.success) {
+          setProjects(data.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch projects", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <section id="projects" className="py-20 bg-slate-50">
@@ -31,7 +36,11 @@ export default async function ProjectsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.length > 0 ? (
+          {loading ? (
+            <p className="col-span-full text-center text-slate-500 font-bold text-xl py-10">
+              Loading projects...
+            </p>
+          ) : projects.length > 0 ? (
             projects.map((project: any) => (
               <ProjectCard key={project._id || project.id} project={project} />
             ))
