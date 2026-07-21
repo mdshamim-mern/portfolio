@@ -7,14 +7,27 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
     
-    if (email === "admin@shamim.com" && password === "123456") {
-      document.cookie = "token=admin_access_token; path=/; max-age=86400;";
-      window.location.href = "/dashboard";
-    } else {
-      setError("Invalid Email or Password!");
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        document.cookie = "token=admin_access_token; path=/; max-age=86400;";
+        window.location.href = "/dashboard";
+      } else {
+        setError(data.error);
+      }
+    } catch (err) {
+      setError("Something went wrong!");
     }
   };
 
