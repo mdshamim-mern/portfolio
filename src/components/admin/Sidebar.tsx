@@ -19,7 +19,7 @@ export default function Sidebar() {
     document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
     localStorage.clear();
     sessionStorage.clear();
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   return (
