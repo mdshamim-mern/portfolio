@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FaChartBar, FaPlus, FaFolderOpen, FaEnvelope, FaGlobe, FaSignOutAlt } from "react-icons/fa";
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const navLinks = [
     { name: "Dashboard", href: "/dashboard", icon: <FaChartBar /> },
@@ -15,15 +16,10 @@ export default function Sidebar() {
   ];
 
   const handleLogout = () => {
+    document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     localStorage.clear();
-    const cookies = document.cookie.split(";");
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i];
-      const eqPos = cookie.indexOf("=");
-      const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
-      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-    }
-    window.location.replace("/login");
+    router.push("/login");
+    router.refresh();
   };
 
   return (
