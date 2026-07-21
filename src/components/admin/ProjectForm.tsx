@@ -40,7 +40,13 @@ export default function ProjectForm() {
 
       <div className="flex flex-col mb-4">
         <label htmlFor="description" className="text-sm font-semibold text-gray-700 mb-2">Description</label>
-        <textarea name="description" id="description" rows={3} required className="border border-gray-300 rounded-lg px-4 py-2 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 w-full resize-none"></textarea>
+        <textarea 
+            name="description" 
+            id="description" 
+            rows={3} 
+            required 
+            className="border border-gray-300 rounded-lg px-4 py-2 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 w-full resize-none"
+        ></textarea>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
