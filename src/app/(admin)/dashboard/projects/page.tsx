@@ -118,7 +118,7 @@ export default function ManageProjectsPage() {
                   </a>
                 )}
                 
-                {/* নতুন যুক্ত করা Edit বাটন */}
+               
                 <Link 
                   href={`/dashboard/projects/edit/${p._id || p.id}`} 
                   className="flex items-center justify-center gap-2 bg-white hover:bg-blue-50 text-slate-600 hover:text-blue-600 px-4 py-2.5 rounded-xl font-bold text-sm transition-all border border-slate-200 hover:border-blue-200 whitespace-nowrap"

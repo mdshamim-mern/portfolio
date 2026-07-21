@@ -27,9 +27,11 @@ export default function EditProjectPage() {
         .then(res => res.json())
         .then(data => {
           const project = data.data || data;
+          
+          console.log("Database Data:", project);
+         
           setFormData({
             title: project.title || "",
-            // Fix: Checking both 'description' and 'overview' from backend
             description: project.description || project.overview || "",
             images: project.images ? project.images.join(", ") : "",
             techStack: project.techStack ? project.techStack.join(", ") : "",
@@ -56,7 +58,6 @@ export default function EditProjectPage() {
 
     const payload = {
       ...formData,
-      // Fix: Sending it as 'overview' too just in case your DB requires it
       overview: formData.description,
       images: formData.images.split(",").map(i => i.trim()).filter(i => i),
       techStack: formData.techStack.split(",").map(t => t.trim()).filter(t => t),

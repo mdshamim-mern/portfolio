@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FaChartBar, FaPlus, FaFolderOpen, FaEnvelope, FaGlobe, FaSignOutAlt } from "react-icons/fa";
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter(); 
 
   const navLinks = [
     { name: "Dashboard", href: "/dashboard", icon: <FaChartBar /> },
@@ -13,6 +14,17 @@ export default function Sidebar() {
     { name: "Manage Projects", href: "/dashboard/projects", icon: <FaFolderOpen /> },
     { name: "Messages", href: "/dashboard/messages", icon: <FaEnvelope /> },
   ];
+
+  
+  const handleLogout = () => {
+
+    localStorage.removeItem("token"); 
+    
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    
+    router.push("/login");
+    router.refresh(); 
+  };
 
   return (
     <>
@@ -56,6 +68,7 @@ export default function Sidebar() {
             <FaGlobe /> Go to Website
           </Link>
           <button 
+            onClick={handleLogout} 
             className="px-4 py-3 rounded-lg hover:bg-red-500/10 transition font-medium text-red-400 hover:text-red-300 flex items-center gap-3 w-full text-left"
           >
             <FaSignOutAlt /> Logout
