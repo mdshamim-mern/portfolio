@@ -14,12 +14,15 @@ export default function Sidebar() {
     { name: "Messages", href: "/dashboard/messages", icon: <FaEnvelope /> },
   ];
 
-  const handleLogout = () => {
-    document.cookie = "token=; path=/; max-age=0;";
-    document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-    localStorage.clear();
-    sessionStorage.clear();
-    window.location.href = "/";
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/logout", { method: "POST" });
+      localStorage.clear();
+      sessionStorage.clear();
+      window.location.href = "/";
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
