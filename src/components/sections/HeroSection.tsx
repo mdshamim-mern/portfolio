@@ -10,6 +10,22 @@ export default function HeroSection() {
   const [fade, setFade] = useState(true);
   const [typedHi, setTypedHi] = useState("");
   const fullHiText = "Hi There I'm";
+  const [profile, setProfile] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await fetch("/api/profile");
+        const data = await res.json();
+        if (data.success) {
+          setProfile(data.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchProfile();
+  }, []);
 
   useEffect(() => {
     let index = 0;
@@ -96,7 +112,7 @@ export default function HeroSection() {
             </Link>
             
             <a 
-              href="/resume/Shamim_Resume_update.pdf" 
+              href={profile?.resume || "/resume/Shamim_Resume_update.pdf"} 
               target="_blank"
               className="px-8 py-4 bg-white text-slate-700 font-bold rounded-full border border-slate-200 hover:border-sky-200 hover:text-sky-500 transition-all duration-300 shadow-sm flex items-center justify-center gap-2 w-full sm:w-auto group"
             >
@@ -111,7 +127,7 @@ export default function HeroSection() {
           <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-sky-500 p-2 shadow-2xl bg-white z-10">
             <div className="w-full h-full rounded-full overflow-hidden relative bg-slate-100">
               <Image 
-                src="/images/shamim_formal.jpg" 
+                src={profile?.image || "/images/shamim_formal.jpg"} 
                 alt="Md Shamim" 
                 fill 
                 className="object-cover"

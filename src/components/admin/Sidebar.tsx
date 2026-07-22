@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaChartBar, FaPlus, FaFolderOpen, FaEnvelope, FaGlobe, FaSignOutAlt } from "react-icons/fa";
+import { FaChartBar, FaPlus, FaFolderOpen, FaEnvelope, FaGlobe, FaSignOutAlt, FaCog } from "react-icons/fa";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -12,6 +12,7 @@ export default function Sidebar() {
     { name: "Add New Project", href: "/dashboard/add-project", icon: <FaPlus /> },
     { name: "Manage Projects", href: "/dashboard/projects", icon: <FaFolderOpen /> },
     { name: "Messages", href: "/dashboard/messages", icon: <FaEnvelope /> },
+    { name: "Profile Settings", href: "/dashboard/settings", icon: <FaCog /> },
   ];
 
   const handleLogout = async () => {

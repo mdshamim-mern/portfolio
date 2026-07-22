@@ -2,11 +2,27 @@
 
 import { FaWhatsapp, FaEnvelope, FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa";
 import Image from "next/image";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function ContactSection() {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [profile, setProfile] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await fetch("/api/profile");
+        const data = await res.json();
+        if (data.success) {
+          setProfile(data.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchProfile();
+  }, []);
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -44,18 +60,15 @@ export default function ContactSection() {
             body: JSON.stringify(dbData),
           });
         } catch (dbError) {
-          console.error("Database save error:", dbError);
+          console.error(dbError);
         }
 
         setResult("✅ Message Sent Successfully! I will get back to you soon.");
-        
         form.reset(); 
       } else {
-        console.log("Web3Forms Error Data:", data);
         setResult(`❌ Form Error: ${data.message || "Invalid response from server"}`);
       }
     } catch (error: any) {
-      console.error("Full Catch Error:", error);
       setResult(`❌ Error: ${error.message || "Failed to execute fetch request"}`);
     }
     
@@ -87,7 +100,7 @@ export default function ContactSection() {
               
               <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-sky-100 flex-shrink-0 bg-slate-100 relative">
                 <Image 
-                  src="/images/shamim_formal.jpg" 
+                  src={profile?.image || "/images/shamim_formal.jpg"} 
                   alt="Md Shamim" 
                   fill 
                   sizes="64px" 
@@ -106,27 +119,27 @@ export default function ContactSection() {
 
             <div className="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex flex-col gap-2">
               
-              <a href="https://wa.me/8801865190471" target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
+              <a href={profile?.phone ? `https://wa.me/${profile.phone.replace(/[^0-9]/g, '')}` : "https://wa.me/8801865190471"} target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
                 <div className="w-12 h-12 bg-green-50 text-green-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <FaWhatsapp className="text-xl" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase">Phone / WhatsApp</p>
-                  <p className="text-sm font-semibold text-slate-700">+880 1865190471</p>
+                  <p className="text-sm font-semibold text-slate-700">{profile?.phone || "+880 1865190471"}</p>
                 </div>
               </a>
 
-              <a href="mailto:mdshamim.mern@gmail.com" className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
+              <a href={`mailto:${profile?.email || "mdshamim.mern@gmail.com"}`} className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
                 <div className="w-12 h-12 bg-sky-50 text-sky-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <FaEnvelope className="text-xl" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase">Email</p>
-                  <p className="text-sm font-semibold text-slate-700">mdshamim.mern@gmail.com</p>
+                  <p className="text-sm font-semibold text-slate-700">{profile?.email || "mdshamim.mern@gmail.com"}</p>
                 </div>
               </a>
 
-              <a href="https://www.linkedin.com/in/md-shamim471" target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
+              <a href={profile?.linkedin || "https://www.linkedin.com/in/md-shamim471"} target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <FaLinkedin className="text-xl" />
                 </div>
@@ -136,7 +149,7 @@ export default function ContactSection() {
                 </div>
               </a>
 
-              <a href="https://www.facebook.com/share/1HJb2Cwxvt/" target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
+              <a href={profile?.facebook || "https://www.facebook.com/share/1HJb2Cwxvt/"} target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
                 <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <FaFacebook className="text-xl" />
                 </div>
@@ -146,7 +159,7 @@ export default function ContactSection() {
                 </div>
               </a>
 
-              <a href="https://github.com/mdshamim-mern" target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
+              <a href={profile?.github || "https://github.com/mdshamim-mern"} target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group">
                 <div className="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <FaGithub className="text-xl" />
                 </div>
@@ -250,5 +263,3 @@ export default function ContactSection() {
     </section>
   );
 }
-
-
