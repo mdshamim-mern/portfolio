@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Md Shamim",
   description: "Portfolio of Md Shamim, a passionate Full Stack Web Developer specializing in the MERN stack.",
   icons: {
-    icon: "/images/fortfolio.png",
+    icon: "/images/portfolio.png",
   },
 };
 
