@@ -3,6 +3,8 @@ import Link from "next/link";
 import { FaPlus, FaEnvelope, FaChartBar, FaFolderOpen } from "react-icons/fa";
 import { getDashboardStats } from "@/actions/dashboardActions";
 
+export const dynamic = 'force-dynamic';
+
 export default async function DashboardPage() {
   const stats = await getDashboardStats();
   const { totalProjects, unreadMessages, profileViews } = stats.data;
