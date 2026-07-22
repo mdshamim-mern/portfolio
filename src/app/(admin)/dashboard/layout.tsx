@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FaHome, FaPlus, FaEnvelope, FaChartBar, FaSignOutAlt, FaFolderOpen } from "react-icons/fa";
+import { FaHome, FaPlus, FaEnvelope, FaChartBar, FaSignOutAlt, FaFolderOpen, FaCog } from "react-icons/fa";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const handleLogout = async () => {
@@ -47,6 +47,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               Messages
             </div>
             <span className="bg-sky-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">New</span>
+          </Link>
+          <Link href="/dashboard/settings" className="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition-all font-medium">
+            <FaCog className="text-lg" />
+            Profile Settings
           </Link>
         </nav>
 
