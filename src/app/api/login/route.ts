@@ -4,7 +4,6 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { email, password } = body;
-
     const adminEmail = process.env.ADMIN_EMAIL;
     const adminPassword = process.env.ADMIN_PASSWORD;
 

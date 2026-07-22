@@ -4,6 +4,15 @@ import Link from "next/link";
 import { FaHome, FaPlus, FaEnvelope, FaChartBar, FaSignOutAlt, FaFolderOpen } from "react-icons/fa";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/logout", { method: "POST" });
+      window.location.href = "/";
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 flex">
       <style dangerouslySetInnerHTML={{ __html: `footer { margin-left: 16rem; }` }} />
@@ -46,7 +55,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <FaHome className="text-lg" />
             Go to Website
           </Link>
-          <button className="w-full flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-500 rounded-xl transition-all text-sm font-medium">
+          <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-500 rounded-xl transition-all text-sm font-medium">
             <FaSignOutAlt className="text-lg" />
             Logout
           </button>
