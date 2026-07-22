@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Link from "next/link";
+import { FaEye, FaEyeSlash, FaArrowLeft } from "react-icons/fa";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -34,8 +35,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+    <div className="fixed inset-0 z-[100] bg-gray-100 flex items-center justify-center min-h-screen p-4 overflow-y-auto">
+      <Link 
+        href="/" 
+        className="absolute top-6 left-6 sm:top-8 sm:left-8 flex items-center gap-2 bg-white px-4 py-2.5 rounded-xl shadow-sm border border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-200 hover:shadow-md transition-all font-bold text-sm z-10"
+      >
+        <FaArrowLeft /> Back to Home
+      </Link>
+
+      <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md relative z-10">
         <h1 className="text-2xl font-bold text-center text-gray-900 mb-6">Admin Login</h1>
         
         {error && <p className="text-red-500 text-sm text-center mb-4 font-medium">{error}</p>}
