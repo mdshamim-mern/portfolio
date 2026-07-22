@@ -47,7 +47,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="p-8 ml-64 min-h-screen bg-[#0f172a] text-white">
+    <div className="p-8 min-h-screen bg-[#0f172a] text-white">
       <h1 className="text-3xl font-bold mb-8">Profile Settings</h1>
       
       <form onSubmit={handleSubmit} className="space-y-6 max-w-3xl bg-gray-900 p-8 rounded-xl border border-gray-800">

@@ -48,13 +48,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </div>
             <span className="bg-sky-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">New</span>
           </Link>
-          <Link href="/dashboard/settings" className="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition-all font-medium">
-            <FaCog className="text-lg" />
-            Profile Settings
-          </Link>
         </nav>
 
         <div className="p-4 border-t border-slate-800 space-y-2">
+          <Link href="/dashboard/settings" className="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition-all text-sm font-medium">
+            <FaCog className="text-lg" />
+            Profile Settings
+          </Link>
           <Link href="/" className="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition-all text-sm font-medium">
             <FaHome className="text-lg" />
             Go to Website
