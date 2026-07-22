@@ -86,7 +86,7 @@ export default function HeroSection() {
           </h2>
           
           <h1 className="text-5xl md:text-7xl font-black text-sky-500 mb-4 tracking-tight">
-            Md. Shamim
+            {profile?.name || "Md. Shamim"}
           </h1>
           
           <div className="h-[40px] md:h-[48px] mb-6 flex justify-center lg:justify-start items-center overflow-hidden">
@@ -100,7 +100,7 @@ export default function HeroSection() {
           </div>
 
           <p className="text-slate-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto lg:mx-0">
-            A passionate software engineer focused on building modern web applications, scalable backend architectures, and immersive user experiences. Ready to transform complex problems into premium digital solutions.
+            {profile?.heroBio || "A passionate software engineer focused on building modern web applications, scalable backend architectures, and immersive user experiences. Ready to transform complex problems into premium digital solutions."}
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

@@ -109,10 +109,10 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-800">Md Shamim</h3>
+                <h3 className="text-xl font-bold text-slate-800">{profile?.name || "Md Shamim"}</h3>
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1 mb-3">Full-Stack Developer</p>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Drop me a line!
+                  {profile?.contactBio || "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Drop me a line!"}
                 </p>
               </div>
             </div>

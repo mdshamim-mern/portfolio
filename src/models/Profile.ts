@@ -2,15 +2,16 @@ import mongoose from "mongoose";
 
 const ProfileSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-    phone: { type: String, required: true },
-    image: { type: String, required: true },
-    resume: { type: String, required: true },
-    github: { type: String, required: true },
-    linkedin: { type: String, required: true },
-    facebook: { type: String, required: true },
-    bio: { type: String, default: "remoto job high paying badly needed" }
+    name: { type: String, required: false },
+    email: { type: String, required: false },
+    phone: { type: String, required: false },
+    image: { type: String, required: false },
+    resume: { type: String, required: false },
+    github: { type: String, required: false },
+    linkedin: { type: String, required: false },
+    facebook: { type: String, required: false },
+    heroBio: { type: String, required: false },
+    contactBio: { type: String, required: false }
   },
   { timestamps: true }
 );

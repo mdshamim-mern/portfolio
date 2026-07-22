@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { refreshProfile } from "@/actions/profileActions";
 
 export default function SettingsPage() {
@@ -13,24 +13,12 @@ export default function SettingsPage() {
     github: "",
     linkedin: "",
     facebook: "",
-    bio: "remoto job high paying badly needed"
+    heroBio: "",
+    contactBio: ""
   });
-  const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const res = await fetch("/api/profile");
-      const data = await res.json();
-      if (data.success && data.data) {
-        setFormData(data.data);
-      }
-      setLoading(false);
-    };
-    fetchProfile();
-  }, []);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -46,6 +34,10 @@ export default function SettingsPage() {
       if (res.ok) {
         await refreshProfile();
         alert("Profile updated successfully!");
+        setFormData({
+          name: "", email: "", phone: "", image: "", resume: "",
+          github: "", linkedin: "", facebook: "", heroBio: "", contactBio: ""
+        });
       }
     } catch (error) {
       console.error(error);
@@ -53,8 +45,6 @@ export default function SettingsPage() {
       setSaving(false);
     }
   };
-
-  if (loading) return <div className="p-8 text-white ml-64 min-h-screen bg-[#0f172a]">Loading...</div>;
 
   return (
     <div className="p-8 ml-64 min-h-screen bg-[#0f172a] text-white">
@@ -65,32 +55,37 @@ export default function SettingsPage() {
           
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-400">Name</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" required />
+            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Leave blank to keep current" className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" />
           </div>
           
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-400">Email</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" required />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Leave blank to keep current" className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" />
           </div>
           
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-400">Phone</label>
-            <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" required />
+            <input type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder="Leave blank to keep current" className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium mb-2 text-gray-400">Bio / Tagline</label>
-            <input type="text" name="bio" value={formData.bio} onChange={handleChange} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" />
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium mb-2 text-gray-400">Hero Section Bio</label>
+            <textarea name="heroBio" value={formData.heroBio} onChange={handleChange} placeholder="Leave blank to keep current" rows={3} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none resize-none"></textarea>
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium mb-2 text-gray-400">Contact Section Bio</label>
+            <textarea name="contactBio" value={formData.contactBio} onChange={handleChange} placeholder="Leave blank to keep current" rows={3} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none resize-none"></textarea>
           </div>
           
           <div className="md:col-span-2">
             <label className="block text-sm font-medium mb-2 text-gray-400">Profile Image URL</label>
-            <input type="text" name="image" value={formData.image} onChange={handleChange} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" required />
+            <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Leave blank to keep current" className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" />
           </div>
           
           <div className="md:col-span-2">
             <label className="block text-sm font-medium mb-2 text-gray-400">Resume PDF URL</label>
-            <input type="text" name="resume" value={formData.resume} onChange={handleChange} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" required />
+            <input type="text" name="resume" value={formData.resume} onChange={handleChange} placeholder="Leave blank to keep current" className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" />
           </div>
           
           <div className="md:col-span-2 mt-4">
@@ -99,17 +94,17 @@ export default function SettingsPage() {
 
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-400">GitHub URL</label>
-            <input type="text" name="github" value={formData.github} onChange={handleChange} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" required />
+            <input type="text" name="github" value={formData.github} onChange={handleChange} placeholder="Leave blank to keep current" className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" />
           </div>
           
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-400">LinkedIn URL</label>
-            <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" required />
+            <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} placeholder="Leave blank to keep current" className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" />
           </div>
           
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-400">Facebook URL</label>
-            <input type="text" name="facebook" value={formData.facebook} onChange={handleChange} className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" required />
+            <input type="text" name="facebook" value={formData.facebook} onChange={handleChange} placeholder="Leave blank to keep current" className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:outline-none" />
           </div>
           
         </div>

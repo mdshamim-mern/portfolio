@@ -16,12 +16,19 @@ export async function POST(req: Request) {
   try {
     await connectToDB();
     const body = await req.json();
+    
+    const updateData = Object.fromEntries(
+      Object.entries(body).filter(([_, v]) => v !== "" && v !== null && v !== undefined)
+    );
+
     let profile = await Profile.findOne();
     
     if (profile) {
-      profile = await Profile.findOneAndUpdate({}, body, { new: true });
+      if (Object.keys(updateData).length > 0) {
+        profile = await Profile.findOneAndUpdate({}, updateData, { new: true });
+      }
     } else {
-      profile = await Profile.create(body);
+      profile = await Profile.create(updateData);
     }
     
     return NextResponse.json({ success: true, data: profile });

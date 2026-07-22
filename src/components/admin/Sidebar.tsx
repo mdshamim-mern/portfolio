@@ -12,7 +12,6 @@ export default function Sidebar() {
     { name: "Add New Project", href: "/dashboard/add-project", icon: <FaPlus /> },
     { name: "Manage Projects", href: "/dashboard/projects", icon: <FaFolderOpen /> },
     { name: "Messages", href: "/dashboard/messages", icon: <FaEnvelope /> },
-    { name: "Profile Settings", href: "/dashboard/settings", icon: <FaCog /> },
   ];
 
   const handleLogout = async () => {
@@ -61,6 +60,16 @@ export default function Sidebar() {
         </nav>
         
         <div className="p-4 border-t border-gray-800 flex flex-col gap-2">
+          <Link 
+            href="/dashboard/settings" 
+            className={`px-4 py-3 rounded-lg transition-all duration-300 font-medium flex items-center gap-3 ${
+              pathname.startsWith("/dashboard/settings")
+                ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+                : "text-gray-400 hover:bg-gray-800 hover:text-white border border-transparent"
+            }`}
+          >
+            <FaCog /> Profile Settings
+          </Link>
           <Link 
             href="/" 
             className="px-4 py-3 rounded-lg hover:bg-gray-800 transition font-medium text-gray-400 hover:text-white flex items-center gap-3"
