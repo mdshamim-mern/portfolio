@@ -10,14 +10,13 @@ export default function ProjectsSection() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        
         const res = await fetch("/api/projects");
         const data = await res.json();
         if (data.success) {
           setProjects(data.data);
         }
       } catch (error) {
-        console.error("Failed to fetch projects", error);
+        console.error(error);
       } finally {
         setLoading(false);
       }
@@ -28,7 +27,7 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-8">
         
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Featured Projects</h2>
