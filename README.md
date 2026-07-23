@@ -5,7 +5,7 @@ Welcome to my personal portfolio repository! I am a Full-Stack Software Develope
 Currently open to high-paying remote software development opportunities worldwide.
 
 ## 🌐 Live Website
-**[Visit My Portfolio](https://portfolio-chi-sand-es1wd3qnnb.vercel.app/)**  
+**[Visit My Portfolio](https://portfolio-chi-sand-es1wd3qnnb.vercel.app/)** 
 
 ## 🚀 Tech Stack Highlights
 
@@ -21,10 +21,21 @@ Currently open to high-paying remote software development opportunities worldwid
 * **NextGen PC Builder:** An enterprise-level, AI-powered web application acting as an advanced custom PC rig configurator without the guesswork. Built with Next.js, TypeScript, and Tailwind CSS.
 * **VibeX - Full Stack Social Media Platform:** A dynamic social media application built with the MERN stack (MongoDB, Express.js, React.js). It enables users to connect, share posts, and interact seamlessly within a community.
 
+## 📦 Dependencies
+*   `next`: 14.1.0
+*   `react`: ^18.x.x
+*   `tailwindcss`: ^3.3.0
+*   `react-icons`: ^5.7.0
+*   `mongoose`: ^9.7.3
+*   `@prisma/client`: ^5.10.2
+*   `pg`: ^8.22.0
+
 ## 🛠️ Local Installation & Setup
 
 To run this project locally on your machine, follow these steps:
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/mdshamim-mern/portfolio.git](https://github.com/mdshamim-mern/portfolio.git)
+```bash
+git clone [https://github.com/mdshamim-mern/portfolio.git](https://github.com/mdshamim-mern/portfolio.git)
+cd portfolio
+npm install
+npm run dev
