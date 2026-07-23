@@ -35,7 +35,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-gray-100 flex items-center justify-center min-h-screen p-4 overflow-y-auto">
+    <div className="fixed inset-0 z-[999999] bg-gray-100 flex items-center justify-center min-h-screen p-4 overflow-y-auto">
       <Link 
         href="/" 
         className="absolute top-6 left-6 sm:top-8 sm:left-8 flex items-center gap-2 bg-white px-4 py-2.5 rounded-xl shadow-sm border border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-200 hover:shadow-md transition-all font-bold text-sm z-10"
