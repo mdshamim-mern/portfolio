@@ -5,8 +5,7 @@ Welcome to my personal portfolio repository! I am a Full-Stack Software Develope
 Currently open to high-paying remote software development opportunities worldwide.
 
 ## 🌐 Live Website
-**[Visit My Portfolio](https://your-portfolio-link.vercel.app)**  
-*(Replace the link above with your actual live website URL)*
+**[Visit My Portfolio](https://portfolio-chi-sand-es1wd3qnnb.vercel.app/)**  
 
 ## 🚀 Tech Stack Highlights
 
