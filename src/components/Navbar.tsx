@@ -29,11 +29,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
-  const isActive = (section: string) => {
+  const navStyle = (section: string) => {
     if (pathname === "/" && activeSection === section) {
-      return "text-sky-500 font-semibold";
+      return "bg-white text-sky-600 font-bold shadow-sm ring-1 ring-slate-200/50";
     }
-    return "text-slate-600 hover:text-sky-500";
+    return "text-slate-500 font-semibold hover:bg-slate-100/80 hover:text-sky-500";
   };
 
   if (pathname?.startsWith("/dashboard")) return null;
@@ -41,51 +41,51 @@ export default function Navbar() {
   return (
     <div className="fixed top-4 w-full z-50 px-4 md:px-8">
       
-      <header className="max-w-6xl mx-auto bg-white/80 backdrop-blur-md shadow-sm border border-white/50 rounded-full px-6 py-3 flex justify-between items-center transition-all duration-300">
+      <header className="max-w-6xl mx-auto bg-white/80 backdrop-blur-xl shadow-lg shadow-slate-200/40 border border-white/80 rounded-full px-4 md:px-6 py-2.5 flex justify-between items-center transition-all duration-500">
         
         <div className="flex flex-col justify-center">
-          <Link href="/#home" className="text-xl md:text-2xl font-extrabold tracking-tight leading-none">
+          <Link href="/#home" className="text-xl md:text-2xl font-black tracking-tighter leading-none">
             <span className="text-sky-500">Shamim</span><span className="text-slate-800">.dev</span>
           </Link>
-          <span className="text-[10.5px] md:text-xs font-bold text-slate-500 tracking-[0.2em] uppercase mt-1">
-            Full Stack Developer
+          <span className="text-[10px] md:text-xs font-black text-slate-400 tracking-[0.2em] uppercase mt-0.5">
+            Full Stack
           </span>
         </div>
 
-        <nav className="hidden lg:flex items-center space-x-8">
-          <Link href="/#home" className={`text-sm transition-colors ${isActive('home')}`}>Home</Link>
-          <Link href="/#about" className={`text-sm transition-colors ${isActive('about')}`}>About</Link>
-          <Link href="/#skills" className={`text-sm transition-colors ${isActive('skills')}`}>Skills</Link>
-          <Link href="/#projects" className={`text-sm transition-colors ${isActive('projects')}`}>Projects</Link>
-          <Link href="/#services" className={`text-sm transition-colors ${isActive('services')}`}>Services</Link>
-          <Link href="/#contact" className={`text-sm transition-colors ${isActive('contact')}`}>Contact</Link>
+        <nav className="hidden lg:flex items-center p-1.5 bg-slate-50 border border-slate-100/80 rounded-full space-x-1">
+          <Link href="/#home" className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle('home')}`}>Home</Link>
+          <Link href="/#about" className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle('about')}`}>About</Link>
+          <Link href="/#skills" className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle('skills')}`}>Skills</Link>
+          <Link href="/#projects" className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle('projects')}`}>Projects</Link>
+          <Link href="/#services" className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle('services')}`}>Services</Link>
+          <Link href="/#contact" className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle('contact')}`}>Contact</Link>
         </nav>
 
-        <div className="hidden lg:flex items-center space-x-6">
-          <Link href="/dashboard" className="text-sm font-medium text-slate-400 hover:text-sky-500 transition-colors">
+        <div className="hidden lg:flex items-center space-x-3">
+          <Link href="/dashboard" className="text-sm font-bold text-slate-400 hover:text-sky-500 transition-colors px-4 py-2 rounded-full hover:bg-slate-50">
             Admin
           </Link>
           <Link 
             href="/#contact" 
-            className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-md shadow-sky-500/30 hover:shadow-lg hover:shadow-sky-500/50 transform hover:-translate-y-0.5"
+            className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 transform hover:-translate-y-0.5"
           >
             Let's Talk
           </Link>
         </div>
 
         <div className="lg:hidden flex items-center gap-3">
-          <Link href="/#contact" className="bg-sky-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-md shadow-sky-500/30">
+          <Link href="/#contact" className="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 shadow-md shadow-sky-500/30">
             Let's Talk
           </Link>
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-slate-600 hover:text-sky-500 focus:outline-none p-1"
+            className="text-slate-600 hover:text-sky-500 bg-slate-50 hover:bg-sky-50 rounded-full p-2 transition-all duration-300 focus:outline-none"
           >
-            <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
@@ -93,15 +93,15 @@ export default function Navbar() {
       </header>
 
       {isMenuOpen && (
-        <div className="lg:hidden max-w-6xl mx-auto mt-3 bg-white/95 backdrop-blur-xl border border-slate-100 rounded-3xl p-5 space-y-2 shadow-2xl">
-          <Link href="/#home" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-xl text-sm font-bold hover:bg-sky-50 transition-colors ${isActive('home')}`}>Home</Link>
-          <Link href="/#about" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-xl text-sm font-bold hover:bg-sky-50 transition-colors ${isActive('about')}`}>About</Link>
-          <Link href="/#skills" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-xl text-sm font-bold hover:bg-sky-50 transition-colors ${isActive('skills')}`}>Skills</Link>
-          <Link href="/#projects" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-xl text-sm font-bold hover:bg-sky-50 transition-colors ${isActive('projects')}`}>Projects</Link>
-          <Link href="/#services" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-xl text-sm font-bold hover:bg-sky-50 transition-colors ${isActive('services')}`}>Services</Link>
-          <Link href="/#contact" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-xl text-sm font-bold hover:bg-sky-50 transition-colors ${isActive('contact')}`}>Contact</Link>
+        <div className="lg:hidden max-w-6xl mx-auto mt-3 bg-white/95 backdrop-blur-xl border border-slate-100 rounded-3xl p-4 space-y-1 shadow-2xl duration-300">
+          <Link href="/#home" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-2xl text-sm transition-all duration-300 ${navStyle('home')}`}>Home</Link>
+          <Link href="/#about" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-2xl text-sm transition-all duration-300 ${navStyle('about')}`}>About</Link>
+          <Link href="/#skills" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-2xl text-sm transition-all duration-300 ${navStyle('skills')}`}>Skills</Link>
+          <Link href="/#projects" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-2xl text-sm transition-all duration-300 ${navStyle('projects')}`}>Projects</Link>
+          <Link href="/#services" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-2xl text-sm transition-all duration-300 ${navStyle('services')}`}>Services</Link>
+          <Link href="/#contact" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-2xl text-sm transition-all duration-300 ${navStyle('contact')}`}>Contact</Link>
           <div className="pt-2 mt-2 border-t border-slate-100">
-            <Link href="/dashboard" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 rounded-xl text-sm font-bold text-slate-400 hover:text-sky-500 hover:bg-sky-50 transition-colors">Admin Dashboard</Link>
+            <Link href="/dashboard" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 rounded-2xl text-sm font-bold text-slate-400 hover:text-sky-500 hover:bg-sky-50 transition-all duration-300">Admin Dashboard</Link>
           </div>
         </div>
       )}
