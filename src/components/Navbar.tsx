@@ -21,7 +21,7 @@ export default function Navbar() {
         "services",
         "contact",
       ];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 140;
 
       for (const section of sections) {
         const element = document.getElementById(section);

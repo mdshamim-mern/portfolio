@@ -37,7 +37,7 @@ export default function WhatsAppButton() {
         href={`https://wa.me/${phone}`}
         target="_blank"
         rel="noreferrer"
-        className="absolute right-0 bottom-16 hidden sm:flex z-20 bg-slate-800 text-white text-[13px] font-semibold py-2.5 px-2 rounded-xl shadow-2xl flex items-center gap-2 hover:bg-slate-800 transition-all duration-300 pointer-events-auto animate-bounce"
+        className="absolute right-0 bottom-16 hidden w-max whitespace-nowrap sm:flex z-20 bg-slate-800 text-white text-[13px] font-semibold py-2.5 px-2 rounded-xl shadow-2xl flex items-center gap-2 hover:bg-slate-800 transition-all duration-300 pointer-events-auto animate-bounce"
         style={{ animationDuration: "2.5s" }}
       >
         <span className="text-sm">💬Let's talk on WhatsApp</span>

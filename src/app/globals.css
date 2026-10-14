@@ -71,7 +71,7 @@ html {
     color: #0c4a6e;
   }
   section[id] {
-    scroll-margin-top: 7rem;
+    scroll-margin-top: 0;
   }
 }
 @layer components {
