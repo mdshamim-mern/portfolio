@@ -1,11 +1,12 @@
 # Md Shamim | Full-Stack Developer Portfolio
 
-Welcome to my personal portfolio repository! I am a Full-Stack Software Developer specializing in the MERN stack, passionate about building highly scalable web applications, AI-driven solutions, and enterprise-level system architectures. 
+Welcome to my personal portfolio repository! I am a Full-Stack Software Developer specializing in the MERN stack, passionate about building highly scalable web applications, AI-driven solutions, and enterprise-level system architectures.
 
 Currently open to high-paying remote software development opportunities worldwide.
 
 ## 🌐 Live Website
-**[Visit My Portfolio](https://portfolio-chi-sand-es1wd3qnnb.vercel.app/)** 
+
+**[Visit My Portfolio](https://portfolio-chi-sand-es1wd3qnnb.vercel.app/)**
 
 ## 🚀 Tech Stack Highlights
 
@@ -17,25 +18,46 @@ Currently open to high-paying remote software development opportunities worldwid
 
 ## ✨ Featured Projects Highlight
 
-* **Easyshop - Full Stack E-commerce Platform:** A modern, responsive e-commerce platform designed to provide a seamless online shopping experience. Built with React, Tailwind CSS, and Node.js.
-* **NextGen PC Builder:** An enterprise-level, AI-powered web application acting as an advanced custom PC rig configurator without the guesswork. Built with Next.js, TypeScript, and Tailwind CSS.
-* **VibeX - Full Stack Social Media Platform:** A dynamic social media application built with the MERN stack (MongoDB, Express.js, React.js). It enables users to connect, share posts, and interact seamlessly within a community.
+- **Easyshop - Full Stack E-commerce Platform:** A modern, responsive e-commerce platform designed to provide a seamless online shopping experience. Built with React, Tailwind CSS, and Node.js.
+- **NextGen PC Builder:** An enterprise-level, AI-powered web application acting as an advanced custom PC rig configurator without the guesswork. Built with Next.js, TypeScript, and Tailwind CSS.
+- **VibeX - Full Stack Social Media Platform:** A dynamic social media application built with the MERN stack (MongoDB, Express.js, React.js). It enables users to connect, share posts, and interact seamlessly within a community.
 
 ## 📦 Dependencies
-*   `next`: 14.1.0
-*   `react`: ^18.x.x
-*   `tailwindcss`: ^3.3.0
-*   `react-icons`: ^5.7.0
-*   `mongoose`: ^9.7.3
-*   `@prisma/client`: ^5.10.2
-*   `pg`: ^8.22.0
+
+- `next`: 14.2.35
+- `react`: ^18.x.x
+- `tailwindcss`: ^3.3.0
+- `react-icons`: ^5.7.0
+- `mongoose`: ^9.7.3
+- `@prisma/client`: ^5.10.2
+- `pg`: ^8.22.0
 
 ## 🛠️ Local Installation & Setup
 
 To run this project locally on your machine, follow these steps:
 
 ```bash
-git clone [https://github.com/mdshamim-mern/portfolio.git](https://github.com/mdshamim-mern/portfolio.git)
+git clone https://github.com/mdshamim-mern/portfolio.git
 cd portfolio
 npm install
 npm run dev
+```
+
+## Portfolio studio
+
+The public portfolio keeps its original section structure. The admin workspace uses a responsive glass sidebar/drawer, shared project editor, profile settings, and inquiry read/unread controls. `/projects` and `/contact` use the same live data and form as the homepage.
+
+### Environment
+
+Set `MONGODB_URI`, `ADMIN_EMAIL`, and `ADMIN_PASSWORD` in `.env.local` for development and in Vercel for deployment. `AUTH_SECRET` is an optional independent session signing secret; otherwise the existing admin password signs sessions. `WEB3FORMS_ACCESS_KEY` optionally overrides the existing email notification integration. Never commit credentials. Existing admin sessions must sign in again after this update.
+
+### Validation
+
+```bash
+npm ci
+npm test
+npm run lint
+npm run build
+```
+
+Project challenges and future plans are editable in the dashboard; only supplied content is displayed. Profile changes preserve the loaded values and permit clearing optional fields. Contact inquiries are stored before email notifications are attempted.

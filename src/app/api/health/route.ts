@@ -4,9 +4,10 @@ export async function GET() {
   return NextResponse.json(
     {
       success: true,
+      release: "responsive-studio-v1",
       message: "Shamim's Portfolio API is running perfectly!",
       timestamp: new Date().toISOString(),
     },
-    { status: 200 }
+    { status: 200 },
   );
 }

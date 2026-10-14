@@ -2,12 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-  background-color: #f8fafc; 
+  background-color: #f8fafc;
   color: #0f172a;
 }
-
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -25,4 +23,118 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+@layer base {
+  html {
+    scroll-padding-top: 7rem;
+  }
+  body {
+    min-width: 280px;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  a,
+  li {
+    overflow-wrap: anywhere;
+  }
+  input,
+  select,
+  textarea {
+    min-width: 0;
+    font-size: 16px;
+  }
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:disabled {
+    cursor: wait;
+    opacity: 0.6;
+  }
+  :focus-visible {
+    outline: 3px solid #0284c7;
+    outline-offset: 4px;
+  }
+  ::selection {
+    background: #bae6fd;
+    color: #0c4a6e;
+  }
+  section[id] {
+    scroll-margin-top: 7rem;
+  }
+}
+@layer components {
+  .admin-surface {
+    background:
+      radial-gradient(ellipse at 10% 0%, #d8f0fa 0%, transparent 45%),
+      radial-gradient(ellipse at 95% 65%, #e5e4ff 0%, transparent 45%), #f2f6fa;
+  }
+  .glass-panel {
+    @apply rounded-3xl border border-white/90 bg-white/70 shadow-xl shadow-slate-200/40 backdrop-blur-xl;
+  }
+  .eyebrow {
+    @apply text-[10px] font-extrabold tracking-[.18em] text-slate-500;
+  }
+  .field-label {
+    @apply mb-2 block text-sm font-semibold text-slate-700;
+  }
+  .field {
+    @apply min-h-12 w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-3 text-base text-slate-900 transition placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-4 focus:ring-sky-500/10;
+  }
+  .primary-button {
+    @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-slate-900 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-slate-900/10 transition hover:bg-sky-700 disabled:opacity-60;
+  }
+  .secondary-button {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700;
+  }
+  .notice-error {
+    @apply rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700;
+  }
+  .notice-success {
+    @apply rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800;
+  }
+  .page-heading {
+    @apply text-2xl font-black tracking-tight text-slate-900 sm:text-3xl;
+  }
+}
+.admin-drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  margin: 0;
+  width: min(88vw, 320px);
+  max-width: 100vw;
+  max-height: 100dvh;
+  height: 100dvh;
+  border: 0;
+  padding: 0;
+  background: #f3f8fdf5;
+  backdrop-filter: blur(24px);
+  color: #0f172a;
+}
+.admin-drawer::backdrop {
+  background: #0f172a66;
+  backdrop-filter: blur(5px);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

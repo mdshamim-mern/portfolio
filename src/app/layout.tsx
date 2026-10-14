@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 
-import Navbar from "../components/Navbar"; 
-import Footer from "../components/Footer"; 
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import ViewTracker from "../components/ui/ViewTracker";
 
@@ -12,7 +12,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Md Shamim",
-  description: "Portfolio of Md Shamim, a passionate Full Stack Web Developer specializing in the MERN stack.",
+  description:
+    "Portfolio of Md Shamim, a passionate Full Stack Web Developer specializing in the MERN stack.",
   icons: {
     icon: "/images/portfolio.png",
   },
@@ -26,17 +27,22 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
-        
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-white focus:p-4"
+        >
+          Skip to content
+        </a>
         <ViewTracker />
 
         <Navbar />
-        
-        <main className="flex-grow">
+
+        <main id="main-content" className="flex-grow">
           {children}
         </main>
-        
+
         <WhatsAppButton />
-        
+
         <Footer />
       </body>
     </html>

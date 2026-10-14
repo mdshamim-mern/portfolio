@@ -1,20 +1,47 @@
 import { NextResponse } from "next/server";
+import { isAdmin } from "@/lib/auth";
 import { connectToDB } from "@/lib/db";
 import Project from "@/models/Project";
-
+import { projectInput } from "@/lib/validation";
+export const dynamic = "force-dynamic";
 export async function POST(req: Request) {
+  if (!(await isAdmin()))
+    return NextResponse.json(
+      { success: false, error: "Please sign in to continue." },
+      { status: 401 },
+    );
+  let body;
+  try {
+    body = projectInput(await req.json());
+  } catch (err) {
+    return NextResponse.json(
+      {
+        success: false,
+        error: err instanceof Error ? err.message : "Invalid project",
+      },
+      { status: 400 },
+    );
+  }
   try {
     await connectToDB();
-    const body = await req.json();
-    const newProject = await Project.create(body);
-    return NextResponse.json({ success: true, data: newProject }, { status: 201 });
-  } catch (error) {
-    return NextResponse.json({ success: false, error: "Failed to add project" }, { status: 500 });
+    const data = await Project.create(body);
+    return NextResponse.json({ success: true, data }, { status: 201 });
+  } catch {
+    return NextResponse.json(
+      { success: false, error: "Could not save project. Please try again." },
+      { status: 500 },
+    );
   }
 }
-
 export async function GET() {
-  await connectToDB();
-  const projects = await Project.find({});
-  return NextResponse.json({ success: true, data: projects });
+  try {
+    await connectToDB();
+    const data = await Project.find({}).sort({ createdAt: -1 });
+    return NextResponse.json({ success: true, data });
+  } catch {
+    return NextResponse.json(
+      { success: false, error: "Projects are temporarily unavailable." },
+      { status: 503 },
+    );
+  }
 }

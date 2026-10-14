@@ -1,12 +1,15 @@
 "use server";
 
+import { requireAdmin } from "@/lib/auth";
+
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
 export async function createSkill(formData: FormData) {
+  await requireAdmin();
   try {
     const name = formData.get("name") as string;
-    const category = formData.get("category") as string; 
+    const category = formData.get("category") as string;
 
     await prisma.skill.create({
       data: {

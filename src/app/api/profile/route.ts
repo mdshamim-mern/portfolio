@@ -1,38 +1,50 @@
 import { NextResponse } from "next/server";
+import { isAdmin } from "@/lib/auth";
 import Profile from "@/models/Profile";
 import { connectToDB } from "@/lib/db";
-
+import { profileInput } from "@/lib/validation";
+export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     await connectToDB();
-    const profile = await Profile.findOne();
-    return NextResponse.json({ success: true, data: profile });
-  } catch (error) {
-    return NextResponse.json({ success: false, message: "Server Error" }, { status: 500 });
+    return NextResponse.json({ success: true, data: await Profile.findOne() });
+  } catch {
+    return NextResponse.json(
+      { success: false, error: "Profile is temporarily unavailable." },
+      { status: 503 },
+    );
   }
 }
-
 export async function POST(req: Request) {
+  if (!(await isAdmin()))
+    return NextResponse.json(
+      { success: false, error: "Please sign in to continue." },
+      { status: 401 },
+    );
+  let body;
+  try {
+    body = profileInput(await req.json());
+  } catch (err) {
+    return NextResponse.json(
+      {
+        success: false,
+        error: err instanceof Error ? err.message : "Invalid profile",
+      },
+      { status: 400 },
+    );
+  }
   try {
     await connectToDB();
-    const body = await req.json();
-    
-    const updateData = Object.fromEntries(
-      Object.entries(body).filter(([_, v]) => v !== "" && v !== null && v !== undefined)
+    const data = await Profile.findOneAndUpdate(
+      {},
+      { $set: body },
+      { new: true, upsert: true, runValidators: true },
     );
-
-    let profile = await Profile.findOne();
-    
-    if (profile) {
-      if (Object.keys(updateData).length > 0) {
-        profile = await Profile.findOneAndUpdate({}, updateData, { new: true });
-      }
-    } else {
-      profile = await Profile.create(updateData);
-    }
-    
-    return NextResponse.json({ success: true, data: profile });
-  } catch (error) {
-    return NextResponse.json({ success: false, message: "Server Error" }, { status: 500 });
+    return NextResponse.json({ success: true, data });
+  } catch {
+    return NextResponse.json(
+      { success: false, error: "Could not update profile. Please try again." },
+      { status: 500 },
+    );
   }
 }

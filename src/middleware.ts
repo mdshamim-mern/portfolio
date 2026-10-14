@@ -1,24 +1,16 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-
-export function middleware(request: NextRequest) {
-  const path = request.nextUrl.pathname;
-  const token = request.cookies.get('token')?.value || '';
-
-  if (path.startsWith('/dashboard') && !token) {
-    return NextResponse.redirect(new URL('/login', request.url));
+import { NextResponse, type NextRequest } from "next/server";
+import { SESSION_COOKIE, verifySession } from "@/lib/session";
+export async function middleware(request: NextRequest) {
+  const authenticated = await verifySession(
+    request.cookies.get(SESSION_COOKIE)?.value,
+  );
+  if (request.nextUrl.pathname.startsWith("/dashboard") && !authenticated) {
+    const url = new URL("/login", request.url);
+    url.searchParams.set("next", request.nextUrl.pathname);
+    return NextResponse.redirect(url);
   }
-
-  if (path === '/login' && token) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
-  }
-
+  if (request.nextUrl.pathname === "/login" && authenticated)
+    return NextResponse.redirect(new URL("/dashboard", request.url));
   return NextResponse.next();
 }
-
-export const config = {
-  matcher: [
-    '/dashboard/:path*',
-    '/login'
-  ],
-};
+export const config = { matcher: ["/dashboard/:path*", "/login"] };

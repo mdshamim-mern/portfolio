@@ -1,9 +1,12 @@
-"use server"; 
+"use server";
 
-import prisma from "@/lib/prisma"; 
-import { revalidatePath } from "next/cache"; 
+import { requireAdmin } from "@/lib/auth";
+
+import prisma from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export async function createProject(formData: FormData) {
+  await requireAdmin();
   try {
     const title = formData.get("title") as string;
     const image = formData.get("image") as string;
@@ -31,7 +34,7 @@ export async function createProject(formData: FormData) {
 
     revalidatePath("/projects");
     revalidatePath("/");
-    
+
     return { success: true, message: "Project created successfully!" };
   } catch (error) {
     console.error("Error creating project:", error);
@@ -43,7 +46,7 @@ export async function getAllProjects() {
   try {
     const projects = await prisma.project.findMany({
       orderBy: {
-        createdAt: "desc", 
+        createdAt: "desc",
       },
     });
     return projects;

@@ -1,11 +1,14 @@
 "use server";
 
+import { requireAdmin } from "@/lib/auth";
+
 import { connectToDB } from "@/lib/db";
 import Project from "@/models/Project";
 import Message from "@/models/Message";
-import PageView from "@/models/PageView"; 
+import PageView from "@/models/PageView";
 
 export async function getDashboardStats() {
+  await requireAdmin();
   try {
     await connectToDB();
 
@@ -14,7 +17,7 @@ export async function getDashboardStats() {
     const unreadMessages = await Message.countDocuments({ isRead: false });
 
     const viewDoc = await PageView.findOne();
-    const profileViews = viewDoc ? viewDoc.views : 0; 
+    const profileViews = viewDoc ? viewDoc.views : 0;
 
     return {
       success: true,

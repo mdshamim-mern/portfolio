@@ -1,4 +1,6 @@
-"use server"; 
+"use server";
+
+import { requireAdmin } from "@/lib/auth";
 
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
@@ -7,7 +9,7 @@ export async function sendMessage(formData: FormData) {
   try {
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
-    const phone = formData.get("phone") as string; 
+    const phone = formData.get("phone") as string;
     const message = formData.get("message") as string;
 
     await prisma.message.create({
@@ -28,6 +30,7 @@ export async function sendMessage(formData: FormData) {
 }
 
 export async function getAllMessages() {
+  await requireAdmin();
   try {
     const messages = await prisma.message.findMany({
       orderBy: {
