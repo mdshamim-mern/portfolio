@@ -3,6 +3,7 @@
 import { phoneDigits, safeLink } from "@/lib/links";
 import {
   FaWhatsapp,
+  FaPhoneAlt,
   FaEnvelope,
   FaLinkedin,
   FaGithub,
@@ -116,6 +117,10 @@ export default function ContactSection() {
             </div>
 
             <div className="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex flex-col gap-2">
+              <a href={`tel:+${phoneDigits(profile?.phone || "+880 1865190471")}`} className="flex items-center gap-4 rounded-2xl border border-transparent p-4 transition-all hover:border-slate-100 hover:bg-slate-50">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-600"><FaPhoneAlt aria-hidden className="text-xl" /></div>
+                <div><p className="text-xs font-bold uppercase text-slate-500">Call</p><p className="text-sm font-semibold text-slate-700">{profile?.phone || "+880 1865190471"}</p></div>
+              </a>
               <a
                 href={
                   profile?.phone
@@ -131,7 +136,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-500 uppercase">
-                    Phone / WhatsApp
+                    WhatsApp
                   </p>
                   <p className="text-sm font-semibold text-slate-700">
                     {profile?.phone || "+880 1865190471"}

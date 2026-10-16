@@ -28,6 +28,7 @@ export default function AboutSection() {
               <div className="space-y-4 text-base leading-relaxed text-slate-600 mb-8">
                 <p>I am Md Shamim, a full-stack developer in Dhaka. Curiosity about the web led me from programming fundamentals to building practical applications.</p>
                 <p>I build with MERN, Next.js, and TypeScript. I enjoy solving backend problems and turning complex workflows into simple, responsive experiences.</p>
+                <p>Outside programming, I enjoy traveling and playing cricket.</p>
               </div>
 
               {/* 2 Bottom Boxes */}

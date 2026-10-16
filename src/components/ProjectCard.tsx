@@ -16,6 +16,14 @@ export default function ProjectCard({ project }: { project: Project }) {
   const id = project._id || project.id;
   const live = safeLink(project.livePreview);
   const repo = safeLink(project.repository);
+  const overview = cleanOverview(project.overview);
+  const summary = /dropzo/i.test(project.title || "")
+    ? "A courier platform for delivery coverage, shipping estimates, and parcel management."
+    : /rentnest/i.test(project.title || "")
+      ? "A rental marketplace with property discovery, AI search, booking requests, and online payments."
+      : /portfolio/i.test(project.title || "")
+        ? "A personal portfolio showcasing projects, skills, and a private workspace for content and inquiries."
+        : overview.split(/(?<=[.!?])\s+/).slice(0, 1).join(" ");
   return (
     <article className="group flex min-w-0 flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/60">
       <div className="aspect-[16/10] overflow-hidden bg-slate-100">
@@ -35,7 +43,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.title}
         </h3>
         <p className="mb-5 mt-3 line-clamp-3 text-sm leading-relaxed text-slate-500">
-          {cleanOverview(project.overview)}
+          {summary}
         </p>
         <div className="mb-7 flex flex-wrap gap-2">
           {project.techStack?.slice(0, 3).map((tech, i) => (
