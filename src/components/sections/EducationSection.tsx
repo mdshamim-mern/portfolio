@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaGraduationCap, FaBriefcase, FaHandsHelping, FaBookOpen } from "react-icons/fa";
 
 export default function EducationSection({ standalone = false }: { standalone?: boolean }) {
   const Heading = standalone ? "h1" : "h2";
@@ -19,20 +20,20 @@ export default function EducationSection({ standalone = false }: { standalone?: 
         {standalone && <nav aria-label="Education page sections" className="mb-8 flex flex-wrap gap-3">
           {[["academic", "Academic journey"], ["experience", "Experience"], ["community", "Beyond programming"]].map(([id, label]) => <a key={id} href={`#${id}`} className="inline-flex min-h-11 items-center rounded-full border border-sky-200 bg-white/80 px-5 text-sm font-semibold text-sky-800 shadow-sm transition hover:border-sky-400 hover:bg-sky-50">{label}<span aria-hidden="true" className="ml-3">↓</span></a>)}
         </nav>}
-        <article id="academic" className="scroll-mt-28 relative overflow-hidden rounded-[2rem] border border-white/90 bg-white/65 backdrop-blur-xl shadow-xl shadow-slate-200/50">
+        <article id="academic" className="scroll-mt-28 relative overflow-hidden rounded-[2rem] border border-slate-100 bg-slate-50/90 backdrop-blur-xl shadow-xl shadow-slate-200/50">
           <div className="grid lg:grid-cols-[1fr_1.8fr]">
-            <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950 p-6 text-white sm:p-6">
-              <span className="inline-flex rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1.5 text-xs font-semibold text-sky-200">Currently pursuing</span>
-              <p className="mt-5 text-4xl font-black tracking-tight text-white">DIU<span className="text-sky-400">.</span></p>
-              <p className="mt-3 text-lg font-semibold leading-relaxed text-slate-200">Daffodil International University</p>
-              <p className="mt-5 text-sm text-slate-300">January 2024 – 2027 (expected)</p>
-              <div className="mt-5 border-t border-white/10 pt-4">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">Programming foundations</p>
-                <p className="mt-2 text-sm font-medium text-sky-200">C / C++ · Java · Problem solving</p>
+            <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-violet-50 p-6 text-slate-900 sm:p-6">
+              <span className="inline-flex rounded-full border border-sky-200 bg-white/80 px-3 py-1.5 text-xs font-semibold text-sky-700">Currently pursuing</span>
+              <p className="mt-5 text-4xl font-black tracking-tight text-slate-900">DIU<span className="text-sky-400">.</span></p>
+              <p className="mt-3 text-lg font-semibold leading-relaxed text-slate-700">Daffodil International University</p>
+              <p className="mt-5 text-sm text-slate-600">January 2024 – 2027 (expected)</p>
+              <div className="mt-5 border-t border-sky-100 pt-4">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-slate-500">Programming foundations</p>
+                <p className="mt-2 text-sm font-medium text-sky-700">C / C++ · Java · Problem solving</p>
               </div>
             </div>
             <div className="min-w-0 p-6 sm:p-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-sky-700">Undergraduate degree</p>
+              <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-sky-700"><span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-lg text-white shadow-md shadow-blue-500/20"><FaGraduationCap /></span>Undergraduate degree</p>
               <DegreeHeading className="mt-2 text-xl font-bold leading-snug text-slate-900 sm:text-2xl">BSc in Computer Science and Engineering</DegreeHeading>
               <dl className="mt-4 grid gap-3 border-y border-slate-100 py-3 sm:grid-cols-2">
                 <div><dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Session / admission</dt><dd className="mt-1 font-semibold text-slate-800">January 2024</dd></div>
@@ -46,8 +47,8 @@ export default function EducationSection({ standalone = false }: { standalone?: 
           </div>
         </article>
         <div className="mt-6 grid min-w-0 items-stretch gap-6 lg:grid-cols-2" aria-label="Experience and community">
-          <article id="experience" className="scroll-mt-28 bg-gradient-to-br from-white/80 to-sky-100/50 rounded-3xl border border-white/90 bg-white/65 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/30 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-sky-600">Experience</p>
+          <article id="experience" className="scroll-mt-28 rounded-3xl border border-slate-100 bg-slate-50/90 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/30 sm:p-8">
+            <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-600"><span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-400 to-purple-600 text-lg text-white shadow-md"><FaBriefcase /></span>Experience</p>
             <h3 className="mt-3 text-2xl font-bold text-slate-800">Independent Full-Stack Developer</h3>
             <p className="mt-2 text-sm font-semibold text-slate-600">Self-employed · June 2024 – Present</p>
             <p className="mt-1 text-sm text-slate-500">Dhaka, Bangladesh · Remote</p>
@@ -58,8 +59,8 @@ export default function EducationSection({ standalone = false }: { standalone?: 
             </p>
             <a href="https://www.linkedin.com/in/md-shamim471/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center font-semibold text-sky-700 hover:underline">View LinkedIn profile ↗</a>
           </article>
-          <article id="community" className="scroll-mt-28 bg-gradient-to-br from-white/80 to-violet-100/50 rounded-3xl border border-white/90 bg-white/65 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/30 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-sky-600">Beyond programming</p>
+          <article id="community" className="scroll-mt-28 rounded-3xl border border-slate-100 bg-slate-50/90 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/30 sm:p-8">
+            <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-600"><span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-teal-500 text-lg text-white shadow-md"><FaHandsHelping /></span>Beyond programming</p>
             <h3 className="mt-3 text-2xl font-bold text-slate-800">Volunteering & Community</h3>
             <div className="mt-4 space-y-5 text-sm leading-relaxed text-slate-600">
               <div><h4 className="font-semibold text-slate-800">Volunteer · Daffodil International University</h4><p className="mt-1">Assisted in organizing and managing university convocation activities.</p></div>
@@ -68,8 +69,8 @@ export default function EducationSection({ standalone = false }: { standalone?: 
           </article>
         </div>
         {standalone && <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {[{year: "2021", degree: "Higher Secondary Certificate", school: "Government Shah Sultan College, Bogura"}, {year: "2019", degree: "Secondary School Certificate", school: "Shabrul High School, Bogura"}].map(item => <article key={item.year} className="rounded-3xl border border-white/90 bg-white/65 backdrop-blur-xl shadow-lg shadow-sky-900/5 p-6 sm:p-8">
-            <div className="flex items-center justify-between gap-3"><p className="text-sm font-bold text-sky-700">{item.year}</p><span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">Completed</span></div>
+          {[{year: "2021", degree: "Higher Secondary Certificate", school: "Government Shah Sultan College, Bogura"}, {year: "2019", degree: "Secondary School Certificate", school: "Shabrul High School, Bogura"}].map(item => <article key={item.year} className="rounded-3xl border border-slate-100 bg-slate-50/90 backdrop-blur-xl shadow-lg shadow-sky-900/5 p-6 sm:p-8">
+            <div className="flex items-center justify-between gap-3"><p className="flex items-center gap-3 text-sm font-bold text-slate-700"><span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-rose-400 to-pink-600 text-lg text-white shadow-md shadow-pink-500/20"><FaBookOpen /></span>{item.year}</p><span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">Completed</span></div>
             <h2 className="mt-5 text-xl font-bold text-slate-900">{item.degree}</h2>
             <p className="mt-2 leading-relaxed text-slate-600">{item.school}</p>
             <p className="mt-4 text-sm font-semibold text-slate-500">Science Group</p>
