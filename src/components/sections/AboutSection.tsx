@@ -25,27 +25,9 @@ export default function AboutSection() {
                 Building with <span className="text-slate-900">Passion.</span>
               </h3>
 
-              <div className="space-y-4 text-base leading-relaxed text-slate-600 mb-8 sm:text-lg">
-                <p>
-                  I am Md Shamim, a full-stack developer based in Dhaka. My programming journey began with
-                  curiosity about how the internet works and has grown through
-                  studying C/C++, Java, data structures, and algorithms, alongside
-                  building practical web applications.
-                </p>
-                <p>
-                  I work with the MERN stack, Next.js, and TypeScript to connect
-                  responsive interfaces with modular APIs and well-structured
-                  databases. Projects such as RentNest and Dropzo let me put that
-                  learning into practice. I especially enjoy solving backend
-                  problems and making complex workflows feel simple for users.
-                </p>
-                <p>
-                  I am continuing to explore AI integration, RAG workflows,
-                  Docker, and cloud deployment. Away from coding, I volunteer at
-                  DIU events and take part in social and community activities
-                  with Prothom Alo Bondhushova. These experiences help me grow as
-                  a communicator, teammate, and problem solver.
-                </p>
+              <div className="space-y-4 text-base leading-relaxed text-slate-600 mb-8">
+                <p>I am Md Shamim, a full-stack developer in Dhaka. Curiosity about the web led me from programming fundamentals to building practical applications.</p>
+                <p>I build with MERN, Next.js, and TypeScript. I enjoy solving backend problems and turning complex workflows into simple, responsive experiences.</p>
               </div>
 
               {/* 2 Bottom Boxes */}
@@ -99,9 +81,9 @@ export default function AboutSection() {
           </div>
 
           {/* ---------------- RIGHT SIDE (4 Bento Cards) ---------------- */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 lg:mt-0">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 items-start content-start self-start gap-6">
             {/* Card 1: Academic & Dev Focus */}
-            <div className="group relative p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+            <div className="group relative p-6 sm:p-7 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -130,7 +112,7 @@ export default function AboutSection() {
             </div>
 
             {/* Card 2: Technical Arsenal */}
-            <div className="group relative p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+            <div className="group relative p-6 sm:p-7 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -160,7 +142,7 @@ export default function AboutSection() {
             </div>
 
             {/* Card 3: Future Goals (Dark Premium Card) */}
-            <div className="group relative p-8 bg-slate-900 border border-slate-800 rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+            <div className="group relative p-6 sm:p-7 bg-slate-900 border border-slate-800 rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-slate-800 text-sky-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -190,7 +172,7 @@ export default function AboutSection() {
             </div>
 
             {/* Card 4: Engineering Philosophy */}
-            <div className="group relative p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+            <div className="group relative p-6 sm:p-7 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -220,28 +202,7 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-        <div className="mt-12 grid min-w-0 gap-6 md:grid-cols-2" aria-label="Experience and community">
-          <article className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-sky-600">Experience</p>
-            <h3 className="mt-3 text-2xl font-bold text-slate-800">Independent Full-Stack Developer</h3>
-            <p className="mt-2 text-sm font-semibold text-slate-600">Self-employed · June 2024 – Present</p>
-            <p className="mt-1 text-sm text-slate-500">Dhaka, Bangladesh · Remote</p>
-            <p className="mt-4 text-sm leading-relaxed text-slate-600">
-              Building web applications with the MERN stack, Next.js App Router,
-              and TypeScript. My work brings together responsive interfaces,
-              modular backend systems, authentication, and database design.
-            </p>
-            <a href="https://www.linkedin.com/in/md-shamim471/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center font-semibold text-sky-700 hover:underline">View LinkedIn profile ↗</a>
-          </article>
-          <article className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-sky-600">Beyond programming</p>
-            <h3 className="mt-3 text-2xl font-bold text-slate-800">Volunteering & Community</h3>
-            <div className="mt-4 space-y-5 text-sm leading-relaxed text-slate-600">
-              <div><h4 className="font-semibold text-slate-800">Volunteer · Daffodil International University</h4><p className="mt-1">Assisted in organizing and managing university convocation activities.</p></div>
-              <div><h4 className="font-semibold text-slate-800">Member · Prothom Alo Bondhushova</h4><p className="mt-1">Participate in social and community activities, developing leadership, communication, and teamwork skills.</p></div>
-            </div>
-          </article>
-        </div>
+
       </div>
     </section>
   );
