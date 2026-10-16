@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { FaCompass } from "react-icons/fa";
+import { GiCricketBat } from "react-icons/gi";
 
 export default function AboutSection() {
   return (
@@ -31,52 +32,19 @@ export default function AboutSection() {
                 <p>Outside programming, I enjoy traveling and playing cricket.</p>
               </div>
 
-              {/* 2 Bottom Boxes */}
-              <div className="flex flex-col sm:flex-row gap-4 items-stretch">
-                {/* Box 1 (Left): Development Focus & Skill Pills */}
-                <div className="flex-[1.2] bg-gradient-to-br from-white to-sky-50/60 p-5 rounded-3xl shadow-md border border-sky-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-center relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-sky-200 rounded-full mix-blend-multiply filter blur-2xl opacity-50 translate-x-1/3 -translate-y-1/3"></div>
-
-                  <div className="mb-4 inline-block bg-white/90 backdrop-blur-md border border-sky-100 p-3.5 rounded-2xl relative z-10 shadow-sm w-full">
-                    <p className="text-[11px] sm:text-xs font-black text-slate-800 flex items-center gap-2 mb-1.5">
-                      <span className="text-sm">💻</span> Development Focus
-                    </p>
-                    <p className="text-[9px] sm:text-[10px] font-bold text-slate-500 flex items-center gap-2">
-                      <span className="text-sm">↗</span> Full-Stack Web Apps
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-2 relative z-10 w-full">
-                    {["React", "Next.js", "Node.js", "APIs", "MongoDB", "TypeScript"].map(
-                      (skill) => (
-                        <span
-                          key={skill}
-                          className="flex justify-center items-center py-1.5 bg-white text-sky-600 text-[10px] font-extrabold rounded-lg border border-sky-200 shadow-sm w-full text-center hover:bg-sky-50 transition-colors"
-                        >
-                          {skill}
-                        </span>
-                      ),
-                    )}
-                  </div>
-                </div>
-
-                {/* Box 2 (Right): 3+ Projects & View Button */}
-                <div className="flex-[0.8] bg-white p-5 rounded-3xl shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col justify-center items-center">
-                  <h4 className="text-4xl md:text-5xl font-black text-sky-500 mb-2">
-                    3+
-                  </h4>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest text-center leading-relaxed mb-4">
-                    Complex
-                    <br />
-                    Projects
-                  </p>
-                  <Link
-                    href="#projects"
-                    className="w-full flex items-center justify-center gap-1.5 px-4 py-2.5 bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold rounded-xl transition-all shadow-md shadow-sky-500/20"
-                  >
-                    View Projects <span>→</span>
-                  </Link>
-                </div>
+              <div className="grid grid-cols-2 gap-3 sm:gap-4" aria-label="Personal interests">
+                <article className="group rounded-3xl border border-sky-100 bg-gradient-to-br from-white to-sky-50 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-5">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-100 text-sky-600"><FaCompass aria-hidden className="text-xl" /></div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-sky-700">Explore</p>
+                  <h4 className="mt-1 text-lg font-bold text-slate-800">Travel</h4>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">Exploring new places.</p>
+                </article>
+                <article className="group rounded-3xl border border-emerald-100 bg-gradient-to-br from-white to-emerald-50 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-5">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600"><GiCricketBat aria-hidden className="text-2xl" /></div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700">Play</p>
+                  <h4 className="mt-1 text-lg font-bold text-slate-800">Cricket</h4>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">Enjoying time on the field.</p>
+                </article>
               </div>
             </div>
           </div>
