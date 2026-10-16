@@ -1,3 +1,4 @@
+import EducationSection from "@/components/sections/EducationSection";
 import HeroSection from "@/components/sections/HeroSection";
 import SkillChart from "@/components/SkillChart";
 import AboutSection from "@/components/sections/AboutSection";
@@ -31,6 +32,8 @@ export default function HomePage() {
           <SkillChart />
         </div>
       </section>
+
+      <EducationSection />
 
       <ProjectsSection />
 

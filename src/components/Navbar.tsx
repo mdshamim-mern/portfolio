@@ -17,6 +17,7 @@ export default function Navbar() {
         "home",
         "about",
         "skills",
+        "education",
         "projects",
         "services",
         "contact",
@@ -49,7 +50,7 @@ export default function Navbar() {
   }, []);
 
   const navStyle = (section: string) => {
-    if (pathname === "/" && activeSection === section) {
+    if ((pathname === "/" && activeSection === section) || (pathname === "/education" && section === "education")) {
       return "bg-white text-sky-600 font-bold shadow-sm ring-1 ring-slate-200/50";
     }
     return "text-slate-500 font-semibold hover:bg-slate-100/80 hover:text-sky-500";
@@ -76,37 +77,40 @@ export default function Navbar() {
         <nav className="hidden xl:flex items-center p-1.5 bg-slate-50 border border-slate-100/80 rounded-full space-x-1">
           <Link
             href="/#home"
-            className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("home")}`}
+            className={`px-3 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("home")}`}
           >
             Home
           </Link>
           <Link
             href="/#about"
-            className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("about")}`}
+            className={`px-3 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("about")}`}
           >
             About
           </Link>
           <Link
             href="/#skills"
-            className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("skills")}`}
+            className={`px-3 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("skills")}`}
           >
             Skills
           </Link>
+          <Link href="/#education" className={`px-3 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("education")}`}>
+            Education
+          </Link>
           <Link
             href="/#projects"
-            className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("projects")}`}
+            className={`px-3 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("projects")}`}
           >
             Projects
           </Link>
           <Link
             href="/#services"
-            className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("services")}`}
+            className={`px-3 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("services")}`}
           >
             Services
           </Link>
           <Link
             href="/#contact"
-            className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("contact")}`}
+            className={`px-3 py-2 rounded-full text-sm transition-all duration-300 ${navStyle("contact")}`}
           >
             Contact
           </Link>
@@ -193,6 +197,9 @@ export default function Navbar() {
             className={`block px-4 py-3 rounded-2xl text-sm transition-all duration-300 ${navStyle("skills")}`}
           >
             Skills
+          </Link>
+          <Link href="/#education" onClick={() => setIsMenuOpen(false)} className={`block px-4 py-3 rounded-2xl text-sm transition-all duration-300 ${navStyle("education")}`}>
+            Education
           </Link>
           <Link
             href="/#projects"

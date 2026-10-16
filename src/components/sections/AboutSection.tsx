@@ -27,9 +27,7 @@ export default function AboutSection() {
 
               <div className="space-y-4 text-base leading-relaxed text-slate-600 mb-8 sm:text-lg">
                 <p>
-                  I am Md Shamim, a full-stack developer based in Dhaka and a
-                  Computer Science and Engineering student at Daffodil
-                  International University. My programming journey began with
+                  I am Md Shamim, a full-stack developer based in Dhaka. My programming journey began with
                   curiosity about how the internet works and has grown through
                   studying C/C++, Java, data structures, and algorithms, alongside
                   building practical web applications.
@@ -52,22 +50,21 @@ export default function AboutSection() {
 
               {/* 2 Bottom Boxes */}
               <div className="flex flex-col sm:flex-row gap-4 items-stretch">
-                {/* Box 1 (Left): University Info & Skill Pills */}
+                {/* Box 1 (Left): Development Focus & Skill Pills */}
                 <div className="flex-[1.2] bg-gradient-to-br from-white to-sky-50/60 p-5 rounded-3xl shadow-md border border-sky-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-center relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-sky-200 rounded-full mix-blend-multiply filter blur-2xl opacity-50 translate-x-1/3 -translate-y-1/3"></div>
 
                   <div className="mb-4 inline-block bg-white/90 backdrop-blur-md border border-sky-100 p-3.5 rounded-2xl relative z-10 shadow-sm w-full">
                     <p className="text-[11px] sm:text-xs font-black text-slate-800 flex items-center gap-2 mb-1.5">
-                      <span className="text-sm">🎓</span> Computer Science
+                      <span className="text-sm">💻</span> Development Focus
                     </p>
                     <p className="text-[9px] sm:text-[10px] font-bold text-slate-500 flex items-center gap-2">
-                      <span className="text-sm">📍</span> at Daffodil Int.
-                      University
+                      <span className="text-sm">↗</span> Full-Stack Web Apps
                     </p>
                   </div>
 
                   <div className="grid grid-cols-3 gap-2 relative z-10 w-full">
-                    {["C++", "Java", "DSA", "OOP", "DBMS", "Flex/Lex"].map(
+                    {["React", "Next.js", "Node.js", "APIs", "MongoDB", "TypeScript"].map(
                       (skill) => (
                         <span
                           key={skill}
@@ -122,16 +119,12 @@ export default function AboutSection() {
                     ></path>
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-slate-800 mb-3">Education</h4>
-                <p className="font-semibold text-slate-800">BSc in Computer Science and Engineering</p>
-                <p className="mt-2 text-sm text-slate-600">Daffodil International University</p>
-                <dl className="mt-4 space-y-2 text-sm leading-relaxed">
-                  <div><dt className="font-semibold text-slate-700">Admission</dt><dd className="text-slate-600">January 2024</dd></div>
-                  <div><dt className="font-semibold text-slate-700">Expected graduation</dt><dd className="text-slate-600">2027 · Currently pursuing</dd></div>
-                </dl>
-                <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                  Academic focus: data structures and algorithms, object-oriented
-                  programming, database management, and compiler design.
+                <h4 className="text-xl font-bold text-slate-800 mb-3">Problem Solving</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  I turn complex requirements into practical solutions by breaking
+                  problems into smaller steps. From data structures and algorithms
+                  to real application workflows, I enjoy understanding how things
+                  work and improving them through thoughtful implementation.
                 </p>
               </div>
             </div>
@@ -253,3 +246,4 @@ export default function AboutSection() {
     </section>
   );
 }
+
