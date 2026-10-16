@@ -25,14 +25,30 @@ export default function AboutSection() {
                 Building with <span className="text-slate-900">Passion.</span>
               </h3>
 
-              <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                I am a full-stack developer dedicated to crafting robust,
-                scalable, and visually stunning digital products. I bridge the
-                gap between complex backend architectures and seamless frontend
-                experiences. My programming journey started with curiosity about
-                how the internet works. Outside coding, I volunteer with Prothom
-                Alo Bondhushova and participate in university events.
-              </p>
+              <div className="space-y-4 text-base leading-relaxed text-slate-600 mb-8 sm:text-lg">
+                <p>
+                  I am Md Shamim, a full-stack developer based in Dhaka and a
+                  Computer Science and Engineering student at Daffodil
+                  International University. My programming journey began with
+                  curiosity about how the internet works and has grown through
+                  studying C/C++, Java, data structures, and algorithms, alongside
+                  building practical web applications.
+                </p>
+                <p>
+                  I work with the MERN stack, Next.js, and TypeScript to connect
+                  responsive interfaces with modular APIs and well-structured
+                  databases. Projects such as RentNest and Dropzo let me put that
+                  learning into practice. I especially enjoy solving backend
+                  problems and making complex workflows feel simple for users.
+                </p>
+                <p>
+                  I am continuing to explore AI integration, RAG workflows,
+                  Docker, and cloud deployment. Away from coding, I volunteer at
+                  DIU events and take part in social and community activities
+                  with Prothom Alo Bondhushova. These experiences help me grow as
+                  a communicator, teammate, and problem solver.
+                </p>
+              </div>
 
               {/* 2 Bottom Boxes */}
               <div className="flex flex-col sm:flex-row gap-4 items-stretch">
@@ -106,14 +122,16 @@ export default function AboutSection() {
                     ></path>
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-slate-800 mb-3">
-                  Academic & Dev Focus
-                </h4>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Pursuing CSE at DIU with a strong foundation in Data
-                  Structures, Algorithms, and Compiler Design. I seamlessly
-                  blend this core academic knowledge with modern web development
-                  to architect scalable applications.
+                <h4 className="text-xl font-bold text-slate-800 mb-3">Education</h4>
+                <p className="font-semibold text-slate-800">BSc in Computer Science and Engineering</p>
+                <p className="mt-2 text-sm text-slate-600">Daffodil International University</p>
+                <dl className="mt-4 space-y-2 text-sm leading-relaxed">
+                  <div><dt className="font-semibold text-slate-700">Admission</dt><dd className="text-slate-600">January 2024</dd></div>
+                  <div><dt className="font-semibold text-slate-700">Expected graduation</dt><dd className="text-slate-600">2027 · Currently pursuing</dd></div>
+                </dl>
+                <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                  Academic focus: data structures and algorithms, object-oriented
+                  programming, database management, and compiler design.
                 </p>
               </div>
             </div>
@@ -208,6 +226,28 @@ export default function AboutSection() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="mt-12 grid min-w-0 gap-6 md:grid-cols-2" aria-label="Experience and community">
+          <article className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-widest text-sky-600">Experience</p>
+            <h3 className="mt-3 text-2xl font-bold text-slate-800">Independent Full-Stack Developer</h3>
+            <p className="mt-2 text-sm font-semibold text-slate-600">Self-employed · June 2024 – Present</p>
+            <p className="mt-1 text-sm text-slate-500">Dhaka, Bangladesh · Remote</p>
+            <p className="mt-4 text-sm leading-relaxed text-slate-600">
+              Building web applications with the MERN stack, Next.js App Router,
+              and TypeScript. My work brings together responsive interfaces,
+              modular backend systems, authentication, and database design.
+            </p>
+            <a href="https://www.linkedin.com/in/md-shamim471/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center font-semibold text-sky-700 hover:underline">View LinkedIn profile ↗</a>
+          </article>
+          <article className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-widest text-sky-600">Beyond programming</p>
+            <h3 className="mt-3 text-2xl font-bold text-slate-800">Volunteering & Community</h3>
+            <div className="mt-4 space-y-5 text-sm leading-relaxed text-slate-600">
+              <div><h4 className="font-semibold text-slate-800">Volunteer · Daffodil International University</h4><p className="mt-1">Assisted in organizing and managing university convocation activities.</p></div>
+              <div><h4 className="font-semibold text-slate-800">Member · Prothom Alo Bondhushova</h4><p className="mt-1">Participate in social and community activities, developing leadership, communication, and teamwork skills.</p></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { cleanOverview, safeLink } from "@/lib/links";
+import { portfolioClientSource } from "@/lib/project-content";
 interface Project {
   title: string;
   overview: string;
@@ -134,7 +135,7 @@ export default function ProjectDetails() {
                     rel="noopener noreferrer"
                     className="secondary-button"
                   >
-                    GitHub repository ↗
+                    {project.repository === portfolioClientSource ? "Client source ↗" : "GitHub repository ↗"}
                   </a>
                 )}
               </div>

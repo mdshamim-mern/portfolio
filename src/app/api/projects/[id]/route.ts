@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { isAdmin } from "@/lib/auth";
 import { connectToDB } from "@/lib/db";
 import Project from "@/models/Project";
+import { correctProjectContent } from "@/lib/project-content";
 
 export async function GET(
   req: Request,
@@ -25,7 +26,7 @@ export async function GET(
       );
     }
 
-    return NextResponse.json({ success: true, data: project });
+    return NextResponse.json({ success: true, data: correctProjectContent(project.toObject()) });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: "Server error" },

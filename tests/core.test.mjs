@@ -17,6 +17,17 @@ const moduleUrl = (file, replace = {}) => {
   return "data:text/javascript;base64," + Buffer.from(code).toString("base64");
 };
 const linksUrl = moduleUrl("links");
+const { correctProjectContent, portfolioClientSource } = await import(moduleUrl("project-content"));
+test("portfolio case study points to public frontend and removes completed resume plan", () => {
+  const project = { repository: "https://github.com/mdshamim-mern/portfolio.git", futurePlans: "Add a blog section, project filtering by technology, analytics for visitor insights, and a downloadable resume." };
+  const result = correctProjectContent(project);
+  assert.equal(result.repository, portfolioClientSource);
+  assert.match(result.futurePlans, /already available/);
+  assert.match(project.futurePlans, /a downloadable resume/);
+  assert.equal(correctProjectContent({ ...project, futurePlans: "A new plan" }).futurePlans, "A new plan");
+  const other = { ...project, repository: "https://github.com/mdshamim-mern/rentnest-frontend" };
+  assert.equal(correctProjectContent(other), other);
+});
 const { phoneDigits, safeLink, cleanOverview } = await import(linksUrl);
 const { projectInput, profileInput } = await import(
   moduleUrl("validation", { '"./links"': JSON.stringify(linksUrl) })

@@ -3,6 +3,7 @@ import { isAdmin } from "@/lib/auth";
 import { connectToDB } from "@/lib/db";
 import Project from "@/models/Project";
 import { projectInput } from "@/lib/validation";
+import { correctProjectContent } from "@/lib/project-content";
 export const dynamic = "force-dynamic";
 export async function POST(req: Request) {
   if (!(await isAdmin()))
@@ -37,7 +38,7 @@ export async function GET() {
   try {
     await connectToDB();
     const data = await Project.find({}).sort({ createdAt: -1 });
-    return NextResponse.json({ success: true, data });
+    return NextResponse.json({ success: true, data: data.map(project => correctProjectContent(project.toObject())) });
   } catch {
     return NextResponse.json(
       { success: false, error: "Projects are temporarily unavailable." },
