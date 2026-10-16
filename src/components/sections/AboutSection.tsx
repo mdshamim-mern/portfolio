@@ -3,7 +3,7 @@ import { GiCricketBat } from "react-icons/gi";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-slate-50 relative overflow-hidden">
+    <section id="about" className="py-20 sm:py-24 bg-gradient-to-br from-sky-50 via-violet-50/60 to-emerald-50/60 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-100 rounded-full mix-blend-multiply filter blur-[120px] opacity-50 -translate-y-1/2 translate-x-1/3"></div>
 
@@ -33,13 +33,13 @@ export default function AboutSection() {
               </div>
 
               <div className="grid grid-cols-2 gap-3 sm:gap-4" aria-label="Personal interests">
-                <article className="group rounded-3xl border border-sky-100 bg-gradient-to-br from-white to-sky-50 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-5">
+                <article className="group rounded-3xl border border-sky-100 bg-gradient-to-br from-white/80 to-sky-100/60 backdrop-blur-xl p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-5">
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-100 text-sky-600"><FaCompass aria-hidden className="text-xl" /></div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-sky-700">Explore</p>
                   <h4 className="mt-1 text-lg font-bold text-slate-800">Travel</h4>
                   <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">Exploring new places.</p>
                 </article>
-                <article className="group rounded-3xl border border-emerald-100 bg-gradient-to-br from-white to-emerald-50 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-5">
+                <article className="group rounded-3xl border border-emerald-100 bg-gradient-to-br from-white/80 to-emerald-100/60 backdrop-blur-xl p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-5">
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600"><GiCricketBat aria-hidden className="text-2xl" /></div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700">Play</p>
                   <h4 className="mt-1 text-lg font-bold text-slate-800">Cricket</h4>
@@ -50,9 +50,9 @@ export default function AboutSection() {
           </div>
 
           {/* ---------------- RIGHT SIDE (4 Bento Cards) ---------------- */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 items-start content-start self-start gap-6">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 items-stretch content-start self-start gap-6">
             {/* Card 1: Academic & Dev Focus */}
-            <div className="group relative p-6 sm:p-7 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+            <div className="group relative p-6 sm:p-7 bg-white/65 border border-white/90 rounded-3xl shadow-lg shadow-sky-900/5 backdrop-blur-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -81,7 +81,7 @@ export default function AboutSection() {
             </div>
 
             {/* Card 2: Technical Arsenal */}
-            <div className="group relative p-6 sm:p-7 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+            <div className="group relative p-6 sm:p-7 bg-white/65 border border-white/90 rounded-3xl shadow-lg shadow-sky-900/5 backdrop-blur-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -111,7 +111,7 @@ export default function AboutSection() {
             </div>
 
             {/* Card 3: Future Goals (Dark Premium Card) */}
-            <div className="group relative p-6 sm:p-7 bg-slate-900 border border-slate-800 rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+            <div className="group relative p-6 sm:p-7 bg-gradient-to-br from-slate-900 via-indigo-950 to-sky-900 border border-white/20 rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-slate-800 text-sky-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -132,7 +132,7 @@ export default function AboutSection() {
                 <h4 className="text-xl font-bold text-white mb-3">
                   Future Vision
                 </h4>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-slate-300 text-sm leading-relaxed">
                   My ultimate goal is to evolve into a top-tier Software
                   Engineer. I am constantly refining my architectural patterns
                   to thrive in elite, high-impact tech environments.
@@ -141,7 +141,7 @@ export default function AboutSection() {
             </div>
 
             {/* Card 4: Engineering Philosophy */}
-            <div className="group relative p-6 sm:p-7 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+            <div className="group relative p-6 sm:p-7 bg-white/65 border border-white/90 rounded-3xl shadow-lg shadow-sky-900/5 backdrop-blur-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">

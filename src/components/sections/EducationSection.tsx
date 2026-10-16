@@ -4,7 +4,7 @@ export default function EducationSection({ standalone = false }: { standalone?: 
   const Heading = standalone ? "h1" : "h2";
   const DegreeHeading = standalone ? "h2" : "h3";
   return (
-    <section id="education" className={`relative isolate overflow-hidden bg-gradient-to-br from-slate-50 via-white to-sky-50 ${standalone ? "pb-20 pt-32 sm:pt-40" : "py-20 sm:py-24"}`}>
+    <section id="education" className={`relative isolate overflow-hidden bg-gradient-to-br from-sky-50 via-violet-50/60 to-emerald-50/70 ${standalone ? "pb-20 pt-32 sm:pt-40" : "py-20 sm:py-24"}`}>
       <div aria-hidden="true" className="pointer-events-none absolute -right-32 top-0 -z-10 h-96 w-96 rounded-full bg-sky-100/70 blur-3xl" />
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         {standalone && <Link href="/#skills" className="mb-8 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sky-700 hover:text-sky-900">← Back to portfolio</Link>}
@@ -19,7 +19,7 @@ export default function EducationSection({ standalone = false }: { standalone?: 
         {standalone && <nav aria-label="Education page sections" className="mb-8 flex flex-wrap gap-3">
           {[["academic", "Academic journey"], ["experience", "Experience"], ["community", "Beyond programming"]].map(([id, label]) => <a key={id} href={`#${id}`} className="inline-flex min-h-11 items-center rounded-full border border-sky-200 bg-white/80 px-5 text-sm font-semibold text-sky-800 shadow-sm transition hover:border-sky-400 hover:bg-sky-50">{label}<span aria-hidden="true" className="ml-3">↓</span></a>)}
         </nav>}
-        <article id="academic" className="scroll-mt-28 relative overflow-hidden rounded-[2rem] border border-sky-100 bg-white/90 shadow-xl shadow-slate-200/50">
+        <article id="academic" className="scroll-mt-28 relative overflow-hidden rounded-[2rem] border border-white/90 bg-white/65 backdrop-blur-xl shadow-xl shadow-slate-200/50">
           <div className="grid lg:grid-cols-[1fr_1.8fr]">
             <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950 p-6 text-white sm:p-6">
               <span className="inline-flex rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1.5 text-xs font-semibold text-sky-200">Currently pursuing</span>
@@ -45,8 +45,8 @@ export default function EducationSection({ standalone = false }: { standalone?: 
             </div>
           </div>
         </article>
-        <div className="mt-6 grid min-w-0 items-start gap-6 lg:grid-cols-2" aria-label="Experience and community">
-          <article id="experience" className="scroll-mt-28 rounded-3xl border border-sky-100 bg-white/90 p-6 shadow-lg shadow-slate-200/30 sm:p-8">
+        <div className="mt-6 grid min-w-0 items-stretch gap-6 lg:grid-cols-2" aria-label="Experience and community">
+          <article id="experience" className="scroll-mt-28 bg-gradient-to-br from-white/80 to-sky-100/50 rounded-3xl border border-white/90 bg-white/65 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/30 sm:p-8">
             <p className="text-xs font-bold uppercase tracking-widest text-sky-600">Experience</p>
             <h3 className="mt-3 text-2xl font-bold text-slate-800">Independent Full-Stack Developer</h3>
             <p className="mt-2 text-sm font-semibold text-slate-600">Self-employed · June 2024 – Present</p>
@@ -58,7 +58,7 @@ export default function EducationSection({ standalone = false }: { standalone?: 
             </p>
             <a href="https://www.linkedin.com/in/md-shamim471/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center font-semibold text-sky-700 hover:underline">View LinkedIn profile ↗</a>
           </article>
-          <article id="community" className="scroll-mt-28 rounded-3xl border border-sky-100 bg-white/90 p-6 shadow-lg shadow-slate-200/30 sm:p-8">
+          <article id="community" className="scroll-mt-28 bg-gradient-to-br from-white/80 to-violet-100/50 rounded-3xl border border-white/90 bg-white/65 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/30 sm:p-8">
             <p className="text-xs font-bold uppercase tracking-widest text-sky-600">Beyond programming</p>
             <h3 className="mt-3 text-2xl font-bold text-slate-800">Volunteering & Community</h3>
             <div className="mt-4 space-y-5 text-sm leading-relaxed text-slate-600">
@@ -68,7 +68,7 @@ export default function EducationSection({ standalone = false }: { standalone?: 
           </article>
         </div>
         {standalone && <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {[{year: "2021", degree: "Higher Secondary Certificate", school: "Government Shah Sultan College, Bogura"}, {year: "2019", degree: "Secondary School Certificate", school: "Shabrul High School, Bogura"}].map(item => <article key={item.year} className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
+          {[{year: "2021", degree: "Higher Secondary Certificate", school: "Government Shah Sultan College, Bogura"}, {year: "2019", degree: "Secondary School Certificate", school: "Shabrul High School, Bogura"}].map(item => <article key={item.year} className="rounded-3xl border border-white/90 bg-white/65 backdrop-blur-xl shadow-lg shadow-sky-900/5 p-6 sm:p-8">
             <div className="flex items-center justify-between gap-3"><p className="text-sm font-bold text-sky-700">{item.year}</p><span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">Completed</span></div>
             <h2 className="mt-5 text-xl font-bold text-slate-900">{item.degree}</h2>
             <p className="mt-2 leading-relaxed text-slate-600">{item.school}</p>
